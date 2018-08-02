@@ -17,7 +17,7 @@ Walk your buddy is your solution for when, whatever reason, you don't have time 
 Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL, Bcrypt, JWT;<br>
 Testing: Mocha, Chai;<br>
 Deployment: Heroku.<br>
-Project planning: Trello.
+Project planning: [Trello](https://trello.com/b/LmybfhdO/walk-your-buddy)
 
 ## Developer:
 [prisoka](https://github.com/prisoka)
