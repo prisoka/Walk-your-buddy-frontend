@@ -1,5 +1,4 @@
 # Walk your Buddy!
-Full stack app
 
 ## Deployed URL: 
 
@@ -21,4 +20,4 @@ Deployment: Heroku.<br>
 Project planning: Trello.
 
 ## Developer:
-[Priscilla Okawa](https://github.com/prisoka)
+[prisoka](https://github.com/prisoka)
