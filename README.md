@@ -13,7 +13,7 @@ Walk your buddy is your solution for when, whatever reason, you don't have time 
 5. run nodemon
 
 ## Technologies: 
-Front-end: JavaScript, React, Redux, CSS Framework;<br>
+<b>Front-end: JavaScript, React, Redux, CSS Framework;</b><br>
 Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL, Bcrypt, JWT;<br>
 Testing: Mocha, Chai;<br>
 Deployment: Heroku.<br>
