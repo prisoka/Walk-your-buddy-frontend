@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 class Header extends Component {
   render() {
     return (
-      <section className="hero is-info is-medium is-bold">
+      <section className="hero is-primary is-medium is-bold">
         <div className="hero-head">
           <nav className="navbar">
             <div className="container">
 
               <div className="navbar-brand">
                 <span className="navbar-burger burger" data-target="navbarMenu">
-                  <span>Account</span>
-                  <span>Contact us</span>
-                  <span>Logout</span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </span>
               </div>
 
@@ -21,8 +21,9 @@ class Header extends Component {
                   <div className="tabs is-right">
                     <ul>
                       <li className="is-active"><a>Home</a></li>
+                      <li><a href="">Signup</a></li>
+                      <li><a href="">Login</a></li>
                       <li><a href="">Account</a></li>
-                      <li><a href="">Contact us</a></li>
                       <li><a href="">Logout</a></li>
                     </ul>
                   </div>
@@ -35,10 +36,13 @@ class Header extends Component {
         <div className="hero-body">
           <div className="container has-text-centered">
             <h1 className="title">
-              Welcome to WYB <br/> &lt;Book A Walk&gt;
+              Welcome to WYB
             </h1>
+            <h2>
+              <a class="button is-primary is-inverted is-rounded is-focused">Book A Walk</a>
+            </h2>
             <h2 className="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Walk Your Buddy is a community that connects people who loves dogs.<br/> If you can't walk your buddy today, no problem, just ask WYB family to help you out!
             </h2>
           </div>
         </div>
