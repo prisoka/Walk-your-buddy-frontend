@@ -22,89 +22,89 @@ class Signup extends Component {
     userSignup(user)
 
     return (
-      <section class="hero is-fullheight">
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <div class="column is-half is-offset-one-quarter">
-              <h3 class="title has-text-grey">Signup</h3>
-              <div class="box">
+      <section className="hero is-fullheight">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <div className="column is-half is-offset-one-quarter">
+              <h3 className="title has-text-grey">Signup</h3>
+              <div className="box">
                 <form id="create_user_form">
 
-                  <div class="field">
-                    <label class="label has-text-left" for="email">Email</label>
-                    <p class="control has-icons-left has-icons-right">
-                      <input id='create_email_field' class="input" type="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
-                      <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
+                  <div className="field">
+                    <label className="label has-text-left" htmlFor="email">Email</label>
+                    <p className="control has-icons-left has-icons-right">
+                      <input id='create_email_field' className="input" type="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-envelope"></i>
                       </span>
-                      <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                      </span>
-                    </p>
-                  </div>
-
-                  <div class="field">
-                    <label class="label has-text-left" for="password">Choose Password</label>
-                    <p class="control has-icons-left">
-                      <input id='create_password_field' class="input" type="password" minlength="8" required />
-                      <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
                       </span>
                     </p>
                   </div>
 
-                  <div class="field">
-                    <p class="control has-icons-left has-icons-right">
-                      <label class="label has-text-left" for="first_name">First name</label>
-                      <input id='first_name' class="input" type="text" required />
+                  <div className="field">
+                    <label className="label has-text-left" htmlFor="password">Choose Password</label>
+                    <p className="control has-icons-left">
+                      <input id='create_password_field' className="input" type="password" minLength="8" required />
+                      <span className="icon is-small is-left">
+                      <i className="fas fa-lock"></i>
+                      </span>
                     </p>
                   </div>
 
-                  <div class="field">
-                    <p class="control has-icons-left has-icons-right">
-                      <label class="label has-text-left" for="last_name">Last name</label>
-                      <input id='last_name' class="input" type="text" required />
+                  <div className="field">
+                    <p className="control has-icons-left has-icons-right">
+                      <label className="label has-text-left" htmlFor="first_name">First name</label>
+                      <input id='first_name' className="input" type="text" required />
                     </p>
                   </div>
 
-                  <div class="field">
-                    <p class="control has-icons-left has-icons-right">
-                      <label class="label has-text-left" for="phone">Phone number</label>
-                      <input id='last_name' class="input" type="number" required />
+                  <div className="field">
+                    <p className="control has-icons-left has-icons-right">
+                      <label className="label has-text-left" htmlFor="last_name">Last name</label>
+                      <input id='last_name' className="input" type="text" required />
                     </p>
                   </div>
 
-                  <div class="field">
-                    <label class="label has-text-left" for="address1">Address Line1</label>
-                    <div class="control">
-                      <input id="address1" name="address1" type="text" placeholder="" class="input" />
-                      <span class="help">Street address, P.O. box, company name, c/o</span>
+                  <div className="field">
+                    <p className="control has-icons-left has-icons-right">
+                      <label className="label has-text-left" htmlFor="phone">Phone number</label>
+                      <input id='phone_number' className="input" type="number" required />
+                    </p>
+                  </div>
+
+                  <div className="field">
+                    <label className="label has-text-left" htmlFor="address1">Address Line1</label>
+                    <div className="control">
+                      <input id="address1" name="address1" type="text" placeholder="" className="input" />
+                      <span className="help">Street address, P.O. box, company name, c/o</span>
                     </div>
                   </div>
 
-                  <div class="field">
-                    <label class="label has-text-left" for="Address2">Address Line2</label>
-                    <div class="control">
-                      <input id="address2" name="address2" type="text" placeholder="" class="input" />
-                      <span class="help">Apartment, suite , unit, building, floor, etc.</span>
+                  <div className="field">
+                    <label className="label has-text-left" htmlFor="Address2">Address Line2</label>
+                    <div className="control">
+                      <input id="address2" name="address2" type="text" placeholder="" className="input" />
+                      <span className="help">Apartment, suite , unit, building, floor, etc.</span>
                     </div>
                   </div>
 
-                  <div class="field">
-                    <label class="label has-text-left" for="zip">Zip/Postal code</label>
-                    <div class="control">
-                      <input id="zip" name="zip" type="number" placeholder="zip or postal code" class="input" required="" />
+                  <div className="field">
+                    <label className="label has-text-left" htmlFor="zip">Zip/Postal code</label>
+                    <div className="control">
+                      <input id="zip" name="zip" type="number" placeholder="zip or postal code" className="input" required="" />
                     </div>
                   </div>
 
-                  <div class="field is-grouped is-grouped-centered">
-                    <p class="control">
-                      <input id="login_submit-form" type='submit' class="button is-primary is-rounded" value="Signup" />
+                  <div className="field is-grouped is-grouped-centered">
+                    <p className="control">
+                      <input id="signup_submit-form" type='submit' className="button is-primary is-rounded" value="Signup" />
                     </p>
                   </div>
                 </form>
               </div>
-              <p class="has-text-grey">
+              <p className="has-text-grey">
                 Have you been here before? &nbsp;·&nbsp; <a href="../">Login</a>
               </p>
             </div>
