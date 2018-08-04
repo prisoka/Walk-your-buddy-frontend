@@ -25,10 +25,10 @@ class Header extends Component {
                         <Link to="/">Home</Link>
                       </li>
                       <li>
-                        <Link to={{pathname: '/signup', search: '?user_type=user'}}>Signup</Link>
+                        <Link to="/signup">Signup</Link>
                       </li>
                       <li>
-                        <Link to={{pathname: '/signup', search: '?user_type=walker'}}>Become a walker</Link>
+                        <Link to="/walkersignup">Become a walker!</Link>
                       </li>
                       <li>
                         <Link to="/login">Login</Link>

@@ -4,9 +4,8 @@ import { bindActionCreators } from 'redux'
 import { userSignup } from '../redux/actions/userActions'
 import { Link } from 'react-router-dom'
 
-class Signup extends Component {
+class UserSignUp extends Component {
   state = {
-    user_type:'',
     email: '',
     password: '',
     first_name: '',
@@ -31,6 +30,7 @@ class Signup extends Component {
     } = this.state
     const { userSignup, history } = this.props
     let newUser = {
+      user_type: 'user',
       email: email,
       password: password,
       first_name: first_name,
@@ -208,4 +208,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   userSignup
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(Signup)
+export default connect(null, mapDispatchToProps)(UserSignUp)
