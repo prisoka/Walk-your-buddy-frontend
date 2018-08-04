@@ -6,8 +6,21 @@ import { userSignup } from '../redux/actions/userActions'
 class Signup extends Component {
   render() {
     const { userSignup } = this.props
-    userSignup()
-    
+
+    let user = {
+      id: 4,
+      email: 'pris4@gmail.com',
+      password: '12345678',
+      first_name: 'priscilla4',
+      last_name: 'priscilla4',
+      phone_number: 5105105511,
+      address_one: '44 tehama street',
+      address_two: '',
+      zip: 94105
+    }
+
+    userSignup(user)
+
     return (
       <section class="hero is-fullheight">
         <div class="hero-body">
