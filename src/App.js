@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/headerComponent'
 import Footer from './components/footerComponent'
-import CreateUser from './components/createUserComponent'
-import CreateWalker from './components/createWalkerComponent'
+import Signup from './components/SignupComponent'
 import Login from './components/loginComponent'
 
 class App extends Component {
@@ -10,8 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CreateUser />
-        <CreateWalker />
+        <Signup />
         <Login />
         <Footer />
       </div>

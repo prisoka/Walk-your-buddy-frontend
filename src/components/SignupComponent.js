@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { userSignup } from '../redux/actions/userActions'
 
-class CreateUserForm extends Component {
+class Signup extends Component {
   render() {
+    const { userSignup } = this.props
+    userSignup()
+    
     return (
       <section class="hero is-fullheight">
         <div class="hero-body">
@@ -96,4 +102,10 @@ class CreateUserForm extends Component {
   }
 }
 
-export default CreateUserForm;
+function mapDispatchToProps(dispatch) {
+  return {
+    userSignup: bindActionCreators(userSignup, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Signup)
