@@ -4,23 +4,49 @@ import { bindActionCreators } from 'redux'
 import { userSignup } from '../redux/actions/userActions'
 
 class Signup extends Component {
-  render() {
+  state = {
+    email: '',
+    password: '',
+    first_name: '',
+    last_name: '',
+    phone_number: '',
+    address_one: '',
+    address_two: '',
+    zip: ''
+  }
+
+  createNewUser = (e) => {
+    e.preventDefault()
+    const {
+      email,
+      password,
+      first_name,
+      last_name,
+      phone_number,
+      address_one,
+      address_two,
+      zip
+    } = this.state
     const { userSignup } = this.props
-
-    let user = {
-      id: 4,
-      email: 'pris4@gmail.com',
-      password: '12345678',
-      first_name: 'priscilla4',
-      last_name: 'priscilla4',
-      phone_number: 5105105511,
-      address_one: '44 tehama street',
-      address_two: '',
-      zip: 94105
+    let newUser = {
+      email: email,
+      password: password,
+      first_name: first_name,
+      last_name: last_name,
+      phone_number: phone_number,
+      address_one: address_one,
+      address_two: address_two,
+      zip: zip
     }
+    console.log('newUser >>>', newUser)
+    userSignup(newUser)
+  }
 
-    userSignup(user)
+  onChange = (e) => this.setState({
+    [e.target.name]: e.target.value
+  })
 
+  render() {
     return (
       <section className="hero is-fullheight">
         <div className="hero-body">
@@ -28,12 +54,22 @@ class Signup extends Component {
             <div className="column is-half is-offset-one-quarter">
               <h3 className="title has-text-grey">Signup</h3>
               <div className="box">
-                <form id="create_user_form">
-
+                <form
+                  id="create_user_form"
+                  onSubmit={(e) => this.createNewUser(e)}
+                >
                   <div className="field">
                     <label className="label has-text-left" htmlFor="email">Email</label>
                     <p className="control has-icons-left has-icons-right">
-                      <input id='create_email_field' className="input" type="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
+                      <input
+                        id='create_email_field'
+                        name='email'
+                        className="input"
+                        type="email"
+                        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                        onChange={this.onChange}
+                        required
+                      />
                       <span className="icon is-small is-left">
                         <i className="fas fa-envelope"></i>
                       </span>
@@ -46,7 +82,15 @@ class Signup extends Component {
                   <div className="field">
                     <label className="label has-text-left" htmlFor="password">Choose Password</label>
                     <p className="control has-icons-left">
-                      <input id='create_password_field' className="input" type="password" minLength="8" required />
+                      <input
+                        id='password'
+                        name='password'
+                        className="input"
+                        type="password"
+                        minLength="8"
+                        onChange={this.onChange}
+                        required
+                      />
                       <span className="icon is-small is-left">
                       <i className="fas fa-lock"></i>
                       </span>
@@ -56,28 +100,56 @@ class Signup extends Component {
                   <div className="field">
                     <p className="control has-icons-left has-icons-right">
                       <label className="label has-text-left" htmlFor="first_name">First name</label>
-                      <input id='first_name' className="input" type="text" required />
+                      <input
+                        id='first_name'
+                        name='first_name'
+                        className="input"
+                        type="text"
+                        onChange={this.onChange}
+                        required
+                      />
                     </p>
                   </div>
 
                   <div className="field">
                     <p className="control has-icons-left has-icons-right">
                       <label className="label has-text-left" htmlFor="last_name">Last name</label>
-                      <input id='last_name' className="input" type="text" required />
+                      <input
+                        id='last_name'
+                        name='last_name'
+                        className="input"
+                        type="text"
+                        onChange={this.onChange}
+                        required
+                      />
                     </p>
                   </div>
 
                   <div className="field">
                     <p className="control has-icons-left has-icons-right">
                       <label className="label has-text-left" htmlFor="phone">Phone number</label>
-                      <input id='phone_number' className="input" type="number" required />
+                      <input
+                        id='phone_number'
+                        name='phone_number'
+                        className="input"
+                        type="number"
+                        onChange={this.onChange}
+                        required
+                      />
                     </p>
                   </div>
 
                   <div className="field">
                     <label className="label has-text-left" htmlFor="address1">Address Line1</label>
                     <div className="control">
-                      <input id="address1" name="address1" type="text" placeholder="" className="input" />
+                      <input
+                        id="address_one"
+                        name="address_one"
+                        type="text"
+                        placeholder=""
+                        className="input"
+                        onChange={this.onChange}
+                      />
                       <span className="help">Street address, P.O. box, company name, c/o</span>
                     </div>
                   </div>
@@ -85,7 +157,14 @@ class Signup extends Component {
                   <div className="field">
                     <label className="label has-text-left" htmlFor="Address2">Address Line2</label>
                     <div className="control">
-                      <input id="address2" name="address2" type="text" placeholder="" className="input" />
+                      <input
+                        id="address_two"
+                        name="address_two"
+                        type="text"
+                        placeholder=""
+                        className="input"
+                        onChange={this.onChange}
+                      />
                       <span className="help">Apartment, suite , unit, building, floor, etc.</span>
                     </div>
                   </div>
@@ -93,7 +172,15 @@ class Signup extends Component {
                   <div className="field">
                     <label className="label has-text-left" htmlFor="zip">Zip/Postal code</label>
                     <div className="control">
-                      <input id="zip" name="zip" type="number" placeholder="zip or postal code" className="input" required="" />
+                      <input
+                        id="zip"
+                        name="zip"
+                        type="number"
+                        placeholder="zip or postal code"
+                        className="input"
+                        onChange={this.onChange}
+                        required
+                      />
                     </div>
                   </div>
 
@@ -115,10 +202,8 @@ class Signup extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    userSignup: bindActionCreators(userSignup, dispatch)
-  }
-}
+const mapDispatchToProps = dispatch => bindActionCreators({
+  userSignup
+}, dispatch)
 
 export default connect(null, mapDispatchToProps)(Signup)

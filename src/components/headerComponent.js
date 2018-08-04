@@ -21,7 +21,7 @@ class Header extends Component {
                   <div className="tabs is-right">
                     <ul>
                       <li className="is-active"><a>Home</a></li>
-                      <li><a href="">Signup</a></li>
+                      <li><a href="/signup">Signup</a></li>
                       <li><a href="">Become a walker</a></li>
                       <li><a href="">Login</a></li>
                       <li><a href="">Account</a></li>

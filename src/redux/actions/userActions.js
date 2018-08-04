@@ -18,6 +18,9 @@ export const userSignup = (newUser) => {
         type: USER_SIGNUP_SUCCESS,
         payload: isSignedUp
       })
+      let form = document.getElementById('create_user_form')
+      form.reset()
+
     } catch(err) {
       dispatch({
         type: USER_SIGNUP_FAILED,
