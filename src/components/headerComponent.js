@@ -22,6 +22,7 @@ class Header extends Component {
                     <ul>
                       <li className="is-active"><a>Home</a></li>
                       <li><a href="">Signup</a></li>
+                      <li><a href="">Become a walker</a></li>
                       <li><a href="">Login</a></li>
                       <li><a href="">Account</a></li>
                       <li><a href="">Logout</a></li>
@@ -33,7 +34,7 @@ class Header extends Component {
           </nav>
         </div>
 
-        <div className="hero-body">
+        <div className="hero-body has-bg-img">
           <div className="container has-text-centered">
             <h1 className="title">
               Welcome to WYB
