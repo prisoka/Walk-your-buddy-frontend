@@ -8,7 +8,7 @@ export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
 
 const BASE_URL = 'http://localhost:3000/api'
 
-export const userSignup = (newUser) => {
+export const userSignup = (newUser, history) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_SIGNUP_PENDING})
@@ -22,9 +22,7 @@ export const userSignup = (newUser) => {
         type: USER_SIGNUP_SUCCESS,
         payload: isSignedUp
       })
-      let form = document.getElementById('create_user_form')
-      form.reset()
-
+      history.push('/login')
     } catch(err) {
       dispatch({
         type: USER_SIGNUP_FAILED,
@@ -34,20 +32,22 @@ export const userSignup = (newUser) => {
   }
 };
 
-export const userLogin = ({email, password}) => {
+export const userLogin = ({email, password}, history) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_LOGIN_PENDING})
-      let response = await fetch(`${BASE_URL}/login`, {
+      let response = await fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({email, password})
       })
+      console.log('response >>>> ', response)
       let userObject = await response.json()
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: userObject
       })
+      history.push('/')
     } catch(err) {
       dispatch({
         type: USER_LOGIN_FAILED,

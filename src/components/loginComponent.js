@@ -13,14 +13,13 @@ class Login extends Component {
   submitLoginForm = (e) => {
     e.preventDefault()
     const { email, password } = this.state
-    const { userLogin } = this.props
+    const { userLogin, history } = this.props
 
     const userLoginIn = {
       email: email,
       password: password
     }
-    console.log('userLoginIn >>>', userLoginIn)
-    userLogin(userLoginIn)
+    userLogin(userLoginIn, history)
   }
 
   onChange = (e) => this.setState({
@@ -40,7 +39,7 @@ class Login extends Component {
                   <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
                 </figure>
                 <form
-                  onSubmit={(e) => this.submitLoginForm()}
+                  onSubmit={(e) => this.submitLoginForm(e)}
                 >
                   <div className="field">
                     <p className="control has-icons-left has-icons-right">

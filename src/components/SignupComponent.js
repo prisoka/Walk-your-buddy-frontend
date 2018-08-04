@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 class Signup extends Component {
   state = {
+    user_type:'',
     email: '',
     password: '',
     first_name: '',
@@ -28,7 +29,7 @@ class Signup extends Component {
       address_two,
       zip
     } = this.state
-    const { userSignup } = this.props
+    const { userSignup, history } = this.props
     let newUser = {
       email: email,
       password: password,
@@ -39,7 +40,7 @@ class Signup extends Component {
       address_two: address_two,
       zip: zip
     }
-    userSignup(newUser)
+    userSignup(newUser, history)
   }
 
   onChange = (e) => this.setState({
