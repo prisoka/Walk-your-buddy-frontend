@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userSignup } from '../redux/actions/userActions'
+import { Link } from 'react-router-dom'
 
 class Signup extends Component {
   state = {
@@ -192,7 +193,8 @@ class Signup extends Component {
                 </form>
               </div>
               <p className="has-text-grey">
-                Have you been here before? &nbsp;·&nbsp; <a href="../">Login</a>
+                Have you been here before? &nbsp;·&nbsp;
+                <Link to='/login'>Login</Link>
               </p>
             </div>
           </div>

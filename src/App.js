@@ -4,7 +4,7 @@ import NavBar from './components/NavBarComponent'
 import Footer from './components/FooterComponent'
 import Signup from './components/SignupComponent'
 import Login from './components/LoginComponent'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <NavBar />
+            <Route exact path='*' component={NavBar}/>
             <Route exact path='/' component={Header}/>
             <Route path='/signup' component={Signup}/>
             <Route path='/login' component={Login}/>

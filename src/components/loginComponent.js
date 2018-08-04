@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom'
 
 class Login extends Component {
+  state = {
+    email:'',
+    password:''
+  }
   render() {
     return (
       <section className="hero is-fullheight">
@@ -34,12 +39,6 @@ class Login extends Component {
                       </span>
                     </p>
                   </div>
-                  <div className="field">
-                    <label className="checkbox">
-                      <input type="checkbox" />
-                      Remember me
-                    </label>
-                  </div>
                   <div className="field is-grouped is-grouped-centered">
                     <p className="control">
                       <input id="login_submit-form" type='submit' className="button is-primary is-rounded" value="Login" />
@@ -48,8 +47,8 @@ class Login extends Component {
                 </form>
               </div>
               <p className="has-text-grey">
-                <a href="../">Signup</a> &nbsp;·&nbsp;
-                <a href="../"> Forgot password</a>
+                First time? Click here to &nbsp;
+                <Link to='/signup'>Signup</Link>
               </p>
             </div>
           </div>
