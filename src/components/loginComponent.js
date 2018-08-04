@@ -1,11 +1,32 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { userLogin } from '../redux/actions/userActions'
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
   state = {
     email:'',
     password:''
   }
+
+  submitLoginForm = (e) => {
+    e.preventDefault()
+    const { email, password } = this.state
+    const { userLogin } = this.props
+
+    const userLoginIn = {
+      email: email,
+      password: password
+    }
+    console.log('userLoginIn >>>', userLoginIn)
+    userLogin(userLoginIn)
+  }
+
+  onChange = (e) => this.setState({
+    [e.target.name]: e.target.value
+  })
+
   render() {
     return (
       <section className="hero is-fullheight">
@@ -18,10 +39,19 @@ class Login extends Component {
                 <figure className="avatar">
                   <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
                 </figure>
-                <form>
+                <form
+                  onSubmit={(e) => this.submitLoginForm()}
+                >
                   <div className="field">
                     <p className="control has-icons-left has-icons-right">
-                      <input id='login_email-field' className="input" type="email" placeholder="Email" required />
+                      <input
+                        id='login_email-field'
+                        className="input"
+                        type="email"
+                        placeholder="Email"
+                        onChange={this.onChange}
+                        required
+                      />
                       <span className="icon is-small is-left">
                         <i className="fas fa-envelope"></i>
                       </span>
@@ -33,7 +63,14 @@ class Login extends Component {
 
                   <div className="field">
                     <p className="control has-icons-left">
-                      <input id='login_password-field' className="input" type="password" placeholder="Password" required />
+                      <input
+                        id='login_password-field'
+                        className="input"
+                        type="password"
+                        placeholder="Password"
+                        onChange={this.onChange}
+                        required
+                      />
                       <span className="icon is-small is-left">
                       <i className="fas fa-lock"></i>
                       </span>
@@ -58,4 +95,8 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  userLogin
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(Login)

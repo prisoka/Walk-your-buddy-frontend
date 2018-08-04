@@ -39,7 +39,6 @@ class Signup extends Component {
       address_two: address_two,
       zip: zip
     }
-    console.log('newUser >>>', newUser)
     userSignup(newUser)
   }
 
