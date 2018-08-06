@@ -11,9 +11,7 @@ class Header extends Component {
               Welcome to WYB
             </h1>
             <h2>
-              <a className="button is-primary is-inverted is-rounded is-focused">
-                <Link to="/login">Book A Walk</Link>
-              </a>
+              <Link to="/login" className="button is-primary is-inverted is-rounded is-focused">Book A Walk</Link>
             </h2>
             <h2 className="subtitle">
               Walk Your Buddy is a community that connects people who loves dogs.<br/> If you can't walk your buddy today, no problem, just ask WYB family to help you out!

@@ -99,8 +99,8 @@ class UserSignUp extends Component {
                   </div>
 
                   <div className="field">
-                    <p className="control has-icons-left has-icons-right">
-                      <label className="label has-text-left" htmlFor="first_name">First name</label>
+                    <label className="label has-text-left" htmlFor="first_name">First name</label>
+                    <div className="control">
                       <input
                         id='first_name'
                         name='first_name'
@@ -109,35 +109,31 @@ class UserSignUp extends Component {
                         onChange={this.onChange}
                         required
                       />
-                    </p>
+                    </div>
                   </div>
 
                   <div className="field">
-                    <p className="control has-icons-left has-icons-right">
-                      <label className="label has-text-left" htmlFor="last_name">Last name</label>
-                      <input
-                        id='last_name'
-                        name='last_name'
-                        className="input"
-                        type="text"
-                        onChange={this.onChange}
-                        required
-                      />
-                    </p>
+                    <label className="label has-text-left" htmlFor="last_name">Last name</label>
+                    <input
+                      id='last_name'
+                      name='last_name'
+                      className="input"
+                      type="text"
+                      onChange={this.onChange}
+                      required
+                    />
                   </div>
 
                   <div className="field">
-                    <p className="control has-icons-left has-icons-right">
-                      <label className="label has-text-left" htmlFor="phone">Phone number</label>
-                      <input
-                        id='phone_number'
-                        name='phone_number'
-                        className="input"
-                        type="number"
-                        onChange={this.onChange}
-                        required
-                      />
-                    </p>
+                    <label className="label has-text-left" htmlFor="phone">Phone number</label>
+                    <input
+                      id='phone_number'
+                      name='phone_number'
+                      className="input"
+                      type="number"
+                      onChange={this.onChange}
+                      required
+                    />
                   </div>
 
                   <div className="field">
