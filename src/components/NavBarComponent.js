@@ -33,8 +33,12 @@ class Header extends Component {
                       <li>
                         <Link to="/login">Login</Link>
                       </li>
-                      <li><a href="">Account</a></li>
-                      <li><a href="">Logout</a></li>
+                      <li>
+                        <Link to="/user_profile">Account</Link>
+                      </li>
+                      <li>
+                        <Link to="/">Logout</Link>
+                      </li>
                     </ul>
                   </div>
                 </div>

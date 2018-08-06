@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
   render() {
@@ -10,7 +11,9 @@ class Header extends Component {
               Welcome to WYB
             </h1>
             <h2>
-              <a className="button is-primary is-inverted is-rounded is-focused">Book A Walk</a>
+              <a className="button is-primary is-inverted is-rounded is-focused">
+                <Link to="/login">Book A Walk</Link>
+              </a>
             </h2>
             <h2 className="subtitle">
               Walk Your Buddy is a community that connects people who loves dogs.<br/> If you can't walk your buddy today, no problem, just ask WYB family to help you out!

@@ -41,7 +41,6 @@ export const userLogin = ({email, password}, history) => {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({email, password})
       })
-      console.log('response >>>> ', response)
       let userObject = await response.json()
       dispatch({
         type: USER_LOGIN_SUCCESS,
