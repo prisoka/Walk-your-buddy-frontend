@@ -12,24 +12,24 @@ class AddDog extends Component {
     dog_size:''
   }
 
-  submitAddDogForm = (e) => {
-    e.preventDefault()
-    const {
-      user_id,
-      dog_name,
-      dog_age,
-      dog_size,
-    } = this.state
-
-    const { addDog, history } = this.props
-    let newDog = {
-      user_id: 1,
-      dog_name: dog_name,
-      dog_age: dog_age,
-      dog_size: dog_size,
-    }
-    addDog(newDog, history)
-  }
+  // submitAddDogForm = (e) => {
+  //   e.preventDefault()
+  //   const {
+  //     user_id,
+  //     dog_name,
+  //     dog_age,
+  //     dog_size,
+  //   } = this.state
+  //
+  //   const { addDog, history } = this.props
+  //   let newDog = {
+  //     user_id: 1,
+  //     dog_name: dog_name,
+  //     dog_age: dog_age,
+  //     dog_size: dog_size,
+  //   }
+  //   addDog(newDog, history)
+  // }
 
   onChange = (e) => this.setState({
     [e.target.name]: e.target.value
@@ -97,7 +97,6 @@ class AddDog extends Component {
                     </div>
                   </div>
 
-
                   <div className="field is-grouped is-grouped-centered">
                     <p className="control">
                       <input id="login_submit-form" type='submit' className="button is-primary is-rounded" value="Add My Dog" />
@@ -113,8 +112,9 @@ class AddDog extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  addDog
-}, dispatch)
-
-export default connect(null, mapDispatchToProps)(AddDog)
+// const mapDispatchToProps = dispatch => bindActionCreators({
+//   addDog
+// }, dispatch)
+//
+// export default connect(null, mapDispatchToProps)(AddDog)
+export default (AddDog)

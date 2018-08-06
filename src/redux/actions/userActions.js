@@ -6,6 +6,10 @@ export const USER_LOGIN_PENDING = 'USER_LOGIN_PENDING'
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
 
+export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
+export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
+export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
+
 const BASE_URL = 'http://localhost:3000/api'
 
 export const userSignup = (newUser, history) => {
@@ -17,10 +21,10 @@ export const userSignup = (newUser, history) => {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newUser)
       })
-      let isSignedUp = await response.json()
+      let userObject = await response.json()
       dispatch({
         type: USER_SIGNUP_SUCCESS,
-        payload: isSignedUp
+        payload: userObject
       })
       history.push('/login')
     } catch(err) {
