@@ -26,8 +26,6 @@ export const userSignup = (newUser, history) => {
         type: USER_SIGNUP_SUCCESS,
         payload: userObject
       })
-      let signupForm = document.getElementById('create_user_form')
-      signupForm.reset()
       history.push('/login')
     } catch(err) {
       dispatch({
@@ -62,7 +60,7 @@ export const userLogin = ({email, password}, history) => {
   }
 };
 
-export const addDog = ({newDog}, history) => {
+export const addDog = (newDog, history) => {
   return async(dispatch) => {
     try {
       dispatch({type: ADD_DOG_PENDING})
@@ -70,6 +68,13 @@ export const addDog = ({newDog}, history) => {
         method: "POST",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newDog)
+      })
+      .then ((response) => {
+        if (response.status === 200 || response.status === 202) {
+          return response;
+        } else {
+          throw new Error(response.statusText);
+        }
       })
       let dogObject = await response.json()
       dispatch({
