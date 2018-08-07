@@ -87,7 +87,9 @@ class Login extends Component {
               </div>
               <p className="has-text-grey">
                 First time? Click here to &nbsp;
-                <Link to='/signup'>Signup</Link>
+                <Link to='/signup'>Signup</Link> <br/>
+                Or here to &nbsp;
+                <Link to='/walkersignup'>Become A Walker</Link>
               </p>
             </div>
           </div>
