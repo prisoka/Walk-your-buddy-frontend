@@ -10,6 +10,8 @@ export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
 export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
 export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
 
+export const USER_LOGOUT = 'USER_LOGOUT'
+
 const BASE_URL = 'http://localhost:3000/api'
 
 export const userSignup = (newUser, history) => {
@@ -58,9 +60,9 @@ export const userLogin = ({email, password}, history) => {
       console.log('userObject >>>', userObject)
 
       if(userObject.userIsWalker){
-        history.push('/')
+        history.push('/walker_index')
       } else {
-        history.push('/')
+        history.push('/user_index')
       }
 
       dispatch({
@@ -97,12 +99,19 @@ export const addDog = (newDog, history) => {
         type: ADD_DOG_SUCCESS,
         payload: dogObject
       })
-      history.push('/')
+      history.push('/user_index')
     } catch(err) {
       dispatch({
         type: ADD_DOG_FAILED,
         payload: err
       })
     }
+  }
+}
+
+export const userLogout = (history) => {
+  return async(dispatch) => {
+    dispatch({type: USER_LOGOUT})
+    history.push('/')
   }
 }
