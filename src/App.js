@@ -8,7 +8,6 @@ import AddDog from './components/AddDogComponent'
 
 import WalkerSignUp from './components/WalkerSignupComponent'
 import WalkerIndex from './components/WalkerIndexComponent'
-import DogCard from './components/DogCardComponent'
 
 import Login from './components/LoginComponent'
 
