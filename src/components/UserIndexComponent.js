@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AddDog from './AddDogComponent';
-
 
 class UserIndex extends Component {
   render() {
