@@ -6,11 +6,8 @@
 WYB is your solution for when, whatever reason, you don't have time to walk you dog!
 
 ## Installation
-1. npm install
-2. psql create database wyb_db
-3. knex migrate:latest
-4. knex seed:run
-5. run nodemon
+1. yarn install
+2. yarn start
 
 ## Technologies: 
 <b>Front-end: JavaScript, React, Redux, CSS Framework;</b><br>
