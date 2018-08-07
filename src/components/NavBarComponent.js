@@ -15,13 +15,16 @@ class Header extends Component {
     return (
       <section className="hero is-primary is-medium is-bold">
         <div className="hero-head">
-          <nav className="navbar is-primary is-fixed-top">
-            <div className="container">
-
+          <nav
+            className="navbar is-primary is-fixed-top"
+            role="navigation"
+            aria-label="main navigation"
+          >
+            <div className="container has-dropdown is-hoverable">
                 <div className="navbar-brand">
                   <div
                     className="navbar-burger burger"
-                    data-target="Options"
+                    data-target="menu_options"
                     aria-label="menu"
                     aria-expanded="false"
                     onClick={this.toggleNav}
