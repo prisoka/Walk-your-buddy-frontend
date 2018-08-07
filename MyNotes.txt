@@ -1,0 +1,8 @@
+IF using onChange function >>>
+ - don't forget to set the NAME in the JSX input, and it has to match the key
+ name on the state
+ - code:
+ 
+ onChange = (e) => this.setState({
+   [e.target.name]: e.target.value
+ })
