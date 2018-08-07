@@ -19,6 +19,7 @@ class Header extends Component {
             </h2>
           </div>
         </div>
+        
       </section>
     );
   }
