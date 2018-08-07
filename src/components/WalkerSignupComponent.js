@@ -189,7 +189,7 @@ class WalkerSignUp extends Component {
                 </form>
               </div>
               <p className="has-text-grey">
-                Have you been here before? &nbsp;·&nbsp;
+                Already registered? Click here to &nbsp;
                 <Link to='/login'>Login</Link>
               </p>
             </div>

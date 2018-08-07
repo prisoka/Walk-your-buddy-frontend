@@ -46,13 +46,10 @@ class Header extends Component {
                     <Link to="/signup">Signup</Link>
                   </div>
                   <div className="navbar-item">
-                    <Link to="/walkersignup">Become a walker!</Link>
-                  </div>
-                  <div className="navbar-item">
                     <Link to="/login">Login</Link>
                   </div>
                   <div className="navbar-item">
-                    <Link to="/user_profile">Account</Link>
+                    <Link to="/user_profile"> My Account</Link>
                   </div>
                   <div className="navbar-item">
                     <Link to="/">Logout</Link>

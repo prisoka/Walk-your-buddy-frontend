@@ -58,9 +58,9 @@ export const userLogin = ({email, password}, history) => {
       console.log('userObject >>>', userObject)
 
       if(userObject.userIsWalker){
-        history.push('/')
+        history.push('/walker_index')
       } else {
-        history.push('/')
+        history.push('/user_index')
       }
 
       dispatch({
@@ -97,7 +97,7 @@ export const addDog = (newDog, history) => {
         type: ADD_DOG_SUCCESS,
         payload: dogObject
       })
-      history.push('/')
+      history.push('/user_index')
     } catch(err) {
       dispatch({
         type: ADD_DOG_FAILED,

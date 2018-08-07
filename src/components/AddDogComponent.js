@@ -25,7 +25,6 @@ class AddDog extends Component {
       dog_age: dog_age,
       dog_size: dog_size,
     }
-    console.log("NEW DOG>>>>", newDog)
     addDog(newDog, history)
   }
 
