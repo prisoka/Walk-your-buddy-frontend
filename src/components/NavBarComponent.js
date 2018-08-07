@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
+  state = {
+    navBarExpanded: false
+  }
+
   toggleNav = () => {
-    var nav = document.querySelector('.navbar-menu');
-    if(nav.className === "navbar-menu") {
-      nav.className = "navbar-menu is-active";
-    } else {
-      nav.className = "navbar-menu";
-    }
+    const { navBarExpanded } = this.state
+    this.setState({
+      navBarExpanded: !navBarExpanded
+    })
   }
 
   render() {
+    const { navBarExpanded } = this.state
     return (
       <section className="hero is-primary is-medium is-bold">
         <div className="hero-head">
@@ -35,7 +38,7 @@ class Header extends Component {
                 </div>
               </div>
 
-              <div id="navbarMenu" className="navbar-menu">
+              <div id="navbarMenu" className={navBarExpanded? "navbar-menu is-active" : "navbar-menu"} >
                 <div className="navbar-end">
                   <div class="navbar-item">
                     <Link to="/">Home</Link>
