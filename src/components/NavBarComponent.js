@@ -16,10 +16,9 @@ class Header extends Component {
   render() {
     const { navBarExpanded } = this.state
     return (
-      <section className="hero is-primary is-medium is-bold">
-        <div className="hero-head">
+      <section className="is-primary is-medium is-bold">
           <nav
-            className="navbar is-primary"
+            className="navbar is-transparent is-fixed-top"
             role="navigation"
             aria-label="main navigation"
           >
@@ -62,7 +61,6 @@ class Header extends Component {
               </div>
             </div>
           </nav>
-        </div>
       </section>
     );
   }

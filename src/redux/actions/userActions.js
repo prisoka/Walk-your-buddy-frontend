@@ -55,6 +55,7 @@ export const userLogin = ({email, password}, history) => {
       })
 
       let userObject = await response.json()
+      console.log('userObject >>>', userObject)
 
       if(userObject.userIsWalker){
         history.push('/')
