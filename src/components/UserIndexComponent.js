@@ -18,7 +18,7 @@ class UserIndex extends Component {
             </div>
           </div>
         </section>
-        <section class="hero is-fullheight is-default is-bold">
+        <section>
           <div class="hero-body">
             <div class="container has-text-centered">
               <div class="columns is-centered">
@@ -27,15 +27,15 @@ class UserIndex extends Component {
                     Available walkers near you:
                   </h2>
                   <p class="has-text-centered">
-                    <Link to="/add_dog" className="button is-link">Add Your Dog</Link>
+                    <Link to="/add_dog" className="button is-warning is-medium">Add Your Dog</Link>
                   </p>
                   <br/>
                   <p class="has-text-centered">
-                    <Link to="/" className="button is-link">Upcoming Walks</Link>
+                    <Link to="/" className="button is-warning is-medium">Upcoming Walks</Link>
                   </p>
                   <br/>
                   <p class="has-text-centered">
-                    <Link to="/" className="button is-link">Past Walks</Link>
+                    <Link to="/" className="button is-warning is-medium">Past Walks</Link>
                   </p>
                 </div>
                 <div class="column is-5">
