@@ -16,48 +16,44 @@ class Header extends Component {
       <section className="hero is-primary is-medium is-bold">
         <div className="hero-head">
           <nav
-            className="navbar is-primary is-fixed-top"
+            className="navbar is-primary"
             role="navigation"
             aria-label="main navigation"
           >
-            <div className="container has-dropdown is-hoverable">
-                <div className="navbar-brand">
-                  <div
-                    className="navbar-burger burger"
-                    data-target="menu_options"
-                    aria-label="menu"
-                    aria-expanded="false"
-                    onClick={this.toggleNav}
-                  >
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </div>
+            <div className="container">
+              <div className="navbar-brand">
+                <div
+                  className="navbar-burger burger"
+                  data-target="menu_options"
+                  aria-label="menu"
+                  aria-expanded="false"
+                  onClick={this.toggleNav}
+                >
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
                 </div>
+              </div>
 
               <div id="navbarMenu" className="navbar-menu">
                 <div className="navbar-end">
-                  <div className="tabs is-right">
-                    <ul>
-                      <li className="is-active">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li>
-                        <Link to="/signup">Signup</Link>
-                      </li>
-                      <li>
-                        <Link to="/walkersignup">Become a walker!</Link>
-                      </li>
-                      <li>
-                        <Link to="/login">Login</Link>
-                      </li>
-                      <li>
-                        <Link to="/user_profile">Account</Link>
-                      </li>
-                      <li>
-                        <Link to="/">Logout</Link>
-                      </li>
-                    </ul>
+                  <div class="navbar-item">
+                    <Link to="/">Home</Link>
+                  </div>
+                  <div class="navbar-item">
+                    <Link to="/signup">Signup</Link>
+                  </div>
+                  <div class="navbar-item">
+                    <Link to="/walkersignup">Become a walker!</Link>
+                  </div>
+                  <div class="navbar-item">
+                    <Link to="/login">Login</Link>
+                  </div>
+                  <div class="navbar-item">
+                    <Link to="/user_profile">Account</Link>
+                  </div>
+                  <div class="navbar-item">
+                    <Link to="/">Logout</Link>
                   </div>
                 </div>
               </div>
