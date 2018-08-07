@@ -8,6 +8,7 @@ import AddDog from './components/AddDogComponent'
 
 import WalkerSignUp from './components/WalkerSignupComponent'
 import WalkerIndex from './components/WalkerIndexComponent'
+import DogCard from './components/DogCardComponent'
 
 import Login from './components/LoginComponent'
 
@@ -23,6 +24,7 @@ class App extends Component {
           <div>
             <Route exact path='*' component={NavBar}/>
             <Route exact path='/' component={Header}/>
+            <Route exact path='/' component={DogCard}/>
             <Route path='/add_dog' component={AddDog}/>
             <Route path='/signup' component={UserSignUp}/>
             <Route path='/walkersignup' component={WalkerSignUp}/>
