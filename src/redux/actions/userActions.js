@@ -59,3 +59,27 @@ export const userLogin = ({email, password}, history) => {
     }
   }
 };
+
+export const addDog = ({newDog}, history) => {
+  return async(dispatch) => {
+    try {
+      dispatch({type: ADD_DOG_PENDING})
+      let response = await fetch(`${BASE_URL}/dogs`, {
+        method: "POST",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(newDog)
+      })
+      let dogObject = await response.json()
+      dispatch({
+        type: ADD_DOG_SUCCESS,
+        payload: dogObject
+      })
+      history.push('/')
+    } catch(err) {
+      dispatch({
+        type: ADD_DOG_FAILED,
+        payload: err
+      })
+    }
+  }
+}

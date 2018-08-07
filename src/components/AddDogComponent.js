@@ -2,34 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addDog } from '../redux/actions/userActions'
-import { Link } from 'react-router-dom'
 
 class AddDog extends Component {
   state = {
-    user_id:'',
     dog_name:'',
     dog_age:'',
     dog_size:''
   }
 
-  // submitAddDogForm = (e) => {
-  //   e.preventDefault()
-  //   const {
-  //     user_id,
-  //     dog_name,
-  //     dog_age,
-  //     dog_size,
-  //   } = this.state
-  //
-  //   const { addDog, history } = this.props
-  //   let newDog = {
-  //     user_id: 1,
-  //     dog_name: dog_name,
-  //     dog_age: dog_age,
-  //     dog_size: dog_size,
-  //   }
-  //   addDog(newDog, history)
-  // }
+  submitAddDogForm = (e) => {
+    e.preventDefault()
+    const {
+      dog_name,
+      dog_age,
+      dog_size,
+    } = this.state
+
+    const { addDog, history } = this.props
+    let newDog = {
+      user_id: 1,
+      dog_name: dog_name,
+      dog_age: dog_age,
+      dog_size: dog_size,
+    }
+    addDog(newDog, history)
+  }
 
   onChange = (e) => this.setState({
     [e.target.name]: e.target.value
@@ -44,7 +41,7 @@ class AddDog extends Component {
               <h3 className="title has-text-grey">Add Your Dog</h3>
               <div className="box">
                 <figure className="avatar">
-                  <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
+                  <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="dog_photo"/>
                 </figure>
                 <form
                   onSubmit={(e) => this.submitAddDogForm(e)}
@@ -82,11 +79,11 @@ class AddDog extends Component {
                     <div className="control">
                       <div className="select is-primary">
                         <select
-                          id='dog_size'
-                          name="dog_size"
-                          onChange={this.onChange}
-                          required
-                        >
+                            id='dog_size'
+                            name="dog_size"
+                            onChange={this.onChange}
+                            required
+                          >
                           <option>Select size</option>
                           <option>Small</option>
                           <option>Medium</option>
@@ -112,9 +109,8 @@ class AddDog extends Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => bindActionCreators({
-//   addDog
-// }, dispatch)
-//
-// export default connect(null, mapDispatchToProps)(AddDog)
-export default (AddDog)
+const mapDispatchToProps = dispatch => bindActionCreators({
+  addDog
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(AddDog)
