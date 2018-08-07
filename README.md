@@ -1,9 +1,9 @@
-# Walk your Buddy!
+# Walk your Buddy! - WYB
 
 ## Deployed URL: 
 
 ## What are you looking at? 
-Walk your buddy is your solution for when, whatever reason, you don't have time to walk you dog!
+WYB is your solution for when, whatever reason, you don't have time to walk you dog!
 
 ## Installation
 1. npm install
