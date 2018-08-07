@@ -11,16 +11,13 @@ class UserIndex extends Component {
               Hi, USER_NAME!
             </h1>
             <h2 className="subtitle">
-              STEPS TO BOOK A WALK: <br/>
-              ADD A DOG: <br/>
-              SELECT DATE AND TIME: <br/>
-              REQUEST AVAILABLE WALKER: <br/>
+              STEPS TO BOOK A WALK:
             </h2>
             <h2>
               <Link to="/add_dog" className="button is-warning is-inverted is-rounded is-focused">Add Your Dog</Link>
             </h2>
             <h2>
-              <Link to="/" className="button is-warning is-inverted is-rounded is-focused">History</Link>
+              <Link to="/" className="button is-warning is-inverted is-rounded is-focused">My Requests</Link>
             </h2>
           </div>
         </div>
