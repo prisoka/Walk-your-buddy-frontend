@@ -39,22 +39,22 @@ class Header extends Component {
 
               <div id="navbarMenu" className={navBarExpanded? "navbar-menu is-active" : "navbar-menu"} >
                 <div className="navbar-end">
-                  <div class="navbar-item">
+                  <div className="navbar-item">
                     <Link to="/">Home</Link>
                   </div>
-                  <div class="navbar-item">
+                  <div className="navbar-item">
                     <Link to="/signup">Signup</Link>
                   </div>
-                  <div class="navbar-item">
+                  <div className="navbar-item">
                     <Link to="/walkersignup">Become a walker!</Link>
                   </div>
-                  <div class="navbar-item">
+                  <div className="navbar-item">
                     <Link to="/login">Login</Link>
                   </div>
-                  <div class="navbar-item">
+                  <div className="navbar-item">
                     <Link to="/user_profile">Account</Link>
                   </div>
-                  <div class="navbar-item">
+                  <div className="navbar-item">
                     <Link to="/">Logout</Link>
                   </div>
                 </div>
