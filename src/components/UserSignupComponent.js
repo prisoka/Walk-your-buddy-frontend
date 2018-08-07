@@ -28,6 +28,7 @@ class UserSignUp extends Component {
       address_two,
       zip
     } = this.state
+
     const { userSignup, history } = this.props
     let newUser = {
       user_type: 'user',

@@ -44,6 +44,7 @@ class AddDog extends Component {
                   <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="dog_photo"/>
                 </figure>
                 <form
+                  id="create_dog_form"
                   onSubmit={(e) => this.submitAddDogForm(e)}
                 >
                   <div className="field">
@@ -96,7 +97,7 @@ class AddDog extends Component {
 
                   <div className="field is-grouped is-grouped-centered">
                     <p className="control">
-                      <input id="login_submit-form" type='submit' className="button is-primary is-rounded" value="Add My Dog" />
+                      <input id="add_dog_submit_btn" type='submit' className="button is-primary is-rounded" value="Add My Dog" />
                     </p>
                   </div>
                 </form>

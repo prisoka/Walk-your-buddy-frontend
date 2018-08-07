@@ -26,6 +26,8 @@ export const userSignup = (newUser, history) => {
         type: USER_SIGNUP_SUCCESS,
         payload: userObject
       })
+      let signupForm = document.getElementById('create_user_form')
+      signupForm.reset()
       history.push('/login')
     } catch(err) {
       dispatch({
