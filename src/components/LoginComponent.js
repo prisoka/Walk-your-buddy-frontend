@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 class Login extends Component {
   state = {
     email:'',
-    password:''
+    password:'',
   }
 
   submitLoginForm = (e) => {
@@ -19,6 +19,7 @@ class Login extends Component {
       email: email,
       password: password
     }
+    console.log('userLoginIn >>>', userLoginIn)
     userLogin(userLoginIn, history)
   }
 
@@ -45,6 +46,7 @@ class Login extends Component {
                     <p className="control has-icons-left has-icons-right">
                       <input
                         id='login_email-field'
+                        name='email'
                         className="input"
                         type="email"
                         placeholder="Email"
@@ -64,6 +66,7 @@ class Login extends Component {
                     <p className="control has-icons-left">
                       <input
                         id='login_password-field'
+                        name='password'
                         className="input"
                         type="password"
                         placeholder="Password"

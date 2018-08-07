@@ -40,17 +40,33 @@ export const userLogin = ({email, password}, history) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_LOGIN_PENDING})
-      let response = await fetch(`${BASE_URL}/users`, {
+
+      let response = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({email, password})
       })
+      .then ((response) => {
+        if (response.status < 300) {
+          return response;
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+
       let userObject = await response.json()
+      console.log('userObject >>>', userObject)
+
+      if(userObject.userIsWalker){
+        history.push('/')
+      } else {
+        history.push('/')
+      }
+
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: userObject
       })
-      history.push('/')
     } catch(err) {
       dispatch({
         type: USER_LOGIN_FAILED,
@@ -70,7 +86,7 @@ export const addDog = (newDog, history) => {
         body: JSON.stringify(newDog)
       })
       .then ((response) => {
-        if (response.status === 200 || response.status === 202) {
+        if (response.status < 300) {
           return response;
         } else {
           throw new Error(response.statusText);
