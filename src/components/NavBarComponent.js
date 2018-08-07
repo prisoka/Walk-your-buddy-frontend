@@ -2,20 +2,38 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
+  toggleNav = () => {
+    var nav = document.querySelector('.navbar-menu');
+    if(nav.className === "navbar-menu") {
+      nav.className = "navbar-menu is-active";
+    } else {
+      nav.className = "navbar-menu";
+    }
+  }
+
   render() {
     return (
       <section className="hero is-primary is-medium is-bold">
         <div className="hero-head">
-          <nav className="navbar">
-            <div className="container">
-
-              <div className="navbar-brand">
-                <span className="navbar-burger burger" data-target="navbarMenu">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-              </div>
+          <nav
+            className="navbar is-primary is-fixed-top"
+            role="navigation"
+            aria-label="main navigation"
+          >
+            <div className="container has-dropdown is-hoverable">
+                <div className="navbar-brand">
+                  <div
+                    className="navbar-burger burger"
+                    data-target="menu_options"
+                    aria-label="menu"
+                    aria-expanded="false"
+                    onClick={this.toggleNav}
+                  >
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </div>
+                </div>
 
               <div id="navbarMenu" className="navbar-menu">
                 <div className="navbar-end">
