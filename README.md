@@ -7,7 +7,7 @@ WYB is your solution for when, whatever reason, you don't have time to walk you 
 
 ## Installation
 1. npm install
-2. psql create database <placeholder: name>
+2. psql create database wyb_db
 3. knex migrate:latest
 4. knex seed:run
 5. run nodemon
@@ -51,15 +51,11 @@ Project planning: [Trello](https://trello.com/b/LmybfhdO/walk-your-buddy)
 - [x] Have a User entity.
 - [x] Your API MUST support user authentication (a.k.a., "login" / "sign-in").
 
-### Additional
+### Additional/Stretch
 
-- [ ] Use a linter or style-guide for code quality
+- [x] Use Redux and Routing.
+- [ ] Utilize a 3rd party API.tilize a 3rd party API.
 - [x] Create a physical project planning board in the EDU space with post it notes
 - [x] Make multiple commits with readable commit messages
 - [x] Include a readme with installation instructions and screenshots
 
-### Stretch
-
-- [x] Use Redux and Routing.
-- [ ] TDD the frontend.
-- [ ] Utilize a 3rd party API.tilize a 3rd party API.
