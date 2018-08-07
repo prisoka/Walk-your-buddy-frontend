@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { userLogout } from '../redux/actions/userActions'
 
-class Header extends Component {
+class NavBar extends Component {
   state = {
     navBarExpanded: false
   }
@@ -15,6 +16,7 @@ class Header extends Component {
 
   render() {
     const { navBarExpanded } = this.state
+    
     return (
       <section className="is-primary is-medium is-bold">
           <nav
@@ -63,4 +65,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default NavBar;

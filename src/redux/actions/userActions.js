@@ -10,6 +10,8 @@ export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
 export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
 export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
 
+export const USER_LOGOUT = 'USER_LOGOUT'
+
 const BASE_URL = 'http://localhost:3000/api'
 
 export const userSignup = (newUser, history) => {
@@ -104,5 +106,12 @@ export const addDog = (newDog, history) => {
         payload: err
       })
     }
+  }
+}
+
+export const userLogout = (history) => {
+  return async(dispatch) => {
+    dispatch({type: USER_LOGOUT})
+    history.push('/')
   }
 }
