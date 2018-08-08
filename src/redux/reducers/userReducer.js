@@ -30,7 +30,7 @@ export default (state = initialState, { type, payload }) => {
     case ADD_DOG_PENDING:
       return {...state}
     case ADD_DOG_SUCCESS:
-      return {...state}
+      return {...state, payload}
     case ADD_DOG_FAILED:
       return {payload}
     default:
