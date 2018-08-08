@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { userLogout } from '../redux/actions/userActions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 class NavBar extends Component {
   state = {
@@ -16,7 +18,8 @@ class NavBar extends Component {
 
   render() {
     const { navBarExpanded } = this.state
-    
+    const { userLogout, history } = this.props
+
     return (
       <section className="is-primary is-medium is-bold">
           <nav
@@ -54,7 +57,7 @@ class NavBar extends Component {
                     <Link to="/user_profile"> My Account</Link>
                   </div>
                   <div className="navbar-item">
-                    <Link to="/">Logout</Link>
+                    <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
                   </div>
                 </div>
               </div>
@@ -65,4 +68,8 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  userLogout
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(NavBar)

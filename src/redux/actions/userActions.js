@@ -44,7 +44,6 @@ export const userLogin = ({email, password}, history) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_LOGIN_PENDING})
-
       let response = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: {
@@ -60,19 +59,15 @@ export const userLogin = ({email, password}, history) => {
           throw new Error(response.statusText);
         }
       })
-
       let userObject = await response.json()
-      console.log('userObject >>>', userObject)
-
       if(userObject.user_type === 'walker'){
         history.push('/walker_index')
       } else {
         history.push('/user_index')
       }
-
       dispatch({
         type: USER_LOGIN_SUCCESS,
-        payload: userObject
+        payload: response
       })
     } catch(err) {
       dispatch({
@@ -119,7 +114,8 @@ export const addDog = (newDog, history) => {
 }
 
 export const userLogout = (history) => {
-  return async(dispatch) => {
+  window.cookies.remove()
+  return (dispatch) => {
     dispatch({type: USER_LOGOUT})
     history.push('/')
   }

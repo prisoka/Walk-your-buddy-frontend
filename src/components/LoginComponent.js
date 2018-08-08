@@ -19,7 +19,7 @@ class Login extends Component {
       email: email,
       password: password
     }
-    console.log('userLoginIn >>>', userLoginIn)
+    // console.log('userLoginIn >>>', userLoginIn)
     userLogin(userLoginIn, history)
   }
 

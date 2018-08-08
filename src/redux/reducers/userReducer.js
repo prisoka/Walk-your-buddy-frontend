@@ -8,6 +8,7 @@ import {
   ADD_DOG_PENDING,
   ADD_DOG_SUCCESS,
   ADD_DOG_FAILED,
+  USER_LOGOUT,
 }
 from '../actions/userActions'
 
@@ -33,6 +34,8 @@ export default (state = initialState, { type, payload }) => {
       return {...state, payload}
     case ADD_DOG_FAILED:
       return {payload}
+    case USER_LOGOUT:
+      return {...state}
     default:
       return state
   }
