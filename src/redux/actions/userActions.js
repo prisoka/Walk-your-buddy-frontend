@@ -64,7 +64,7 @@ export const userLogin = ({email, password}, history) => {
       let userObject = await response.json()
       console.log('userObject >>>', userObject)
 
-      if(userObject.userIsWalker){
+      if(userObject.user_type === 'walker'){
         history.push('/walker_index')
       } else {
         history.push('/user_index')
