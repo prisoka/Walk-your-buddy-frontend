@@ -20,7 +20,6 @@ class AddDog extends Component {
 
     const { addDog, history } = this.props
     let newDog = {
-      user_id: 1,
       dog_name: dog_name,
       dog_age: dog_age,
       dog_size: dog_size,

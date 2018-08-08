@@ -1,3 +1,5 @@
+import {getCookie} from '../../utils/getCookie'
+
 export const USER_SIGNUP_PENDING = 'USER_SIGNUP_PENDING'
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
@@ -45,7 +47,10 @@ export const userLogin = ({email, password}, history) => {
 
       let response = await fetch(`${BASE_URL}/login`, {
         method: "POST",
-        headers: {'Content-Type':'application/json'},
+        headers: {
+          'Content-Type':'application/json'
+        },
+        credentials: 'include',
         body: JSON.stringify({email, password})
       })
       .then ((response) => {
@@ -84,7 +89,11 @@ export const addDog = (newDog, history) => {
       dispatch({type: ADD_DOG_PENDING})
       let response = await fetch(`${BASE_URL}/dogs`, {
         method: "POST",
-        headers: {'Content-Type':'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+        },
+        credentials: 'include',
         body: JSON.stringify(newDog)
       })
       .then ((response) => {
