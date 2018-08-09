@@ -12,20 +12,22 @@ class DogCard extends Component {
           </div>
           <div className="card-content">
             <div className="media">
-              <div className="media-left">
-                <figure className="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="user" />
-                </figure>
-              </div>
               <div className="media-content">
                 <p className="title is-4">Aquila</p>
                 <p className="subtitle is-6">owner: Priscilla</p>
               </div>
             </div>
+            <div className="media">
 
             <div className="content">
-              <p className="subtitle is-6">When?</p>
-              <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              <p className="subtitle is-6">Date:</p>
+              <p dateTime="2016-1-1">1 Jan 2016</p>
+            </div>
+          </div>
+
+            <div className="content">
+              <p className="subtitle is-6">Time:</p>
+              <p dateTime="2016-1-1">11:09 PM</p>
             </div>
 
             <div className="content">

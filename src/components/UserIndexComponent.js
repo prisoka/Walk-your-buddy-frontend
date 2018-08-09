@@ -13,7 +13,7 @@ class UserIndex extends Component {
               </h1>
               <br/>
               <p className="has-text-centered">
-                <Link to="/" className="button is-warning is-inverted is-rounded is-focused is-medium">Book A Walk</Link> &nbsp;
+                <Link to="/request" className="button is-warning is-inverted is-rounded is-focused is-medium">Book A Walk</Link> &nbsp;
               </p>
             </div>
           </div>
