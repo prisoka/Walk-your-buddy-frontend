@@ -121,7 +121,7 @@ export const requestWalk = (newRequest, history) => {
   return async(dispatch) => {
     try {
       dispatch({type: REQUEST_PENDING})
-      let response = await fetch(`${BASE_URL}/request`, {
+      let response = await fetch(`${BASE_URL}/requests`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

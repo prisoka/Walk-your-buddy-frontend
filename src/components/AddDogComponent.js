@@ -42,6 +42,21 @@ class AddDog extends Component {
                 <figure className="avatar">
                   <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="dog_photo"/>
                 </figure>
+                <div>
+                  <div class="file is-small is-centered">
+                    <label class="file-label">
+                      <input class="file-input" type="file" name="resume" />
+                      <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                          Choose a photo…
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
                 <form
                   id="create_dog_form"
                   onSubmit={(e) => this.submitAddDogForm(e)}

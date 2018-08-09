@@ -1,6 +1,33 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { requestWalk } from '../redux/actions/userActions'
 
 class RequestWalk extends Component {
+
+  state = {
+    request_date:'',
+    request_time:'',
+  }
+
+  submitReqForm = (e) => {
+    e.preventDefault()
+    const {
+      request_date,
+      request_time,
+    } = this.state
+
+    const { requestWalk, history } = this.props
+    let newRequest = {
+      request_date: request_date,
+      request_time: request_time,
+    }
+    requestWalk(newRequest, history)
+  }
+  onChange = (e) => this.setState({
+    [e.target.name]: e.target.value
+  })
+
   render() {
     return (
       <section className="hero is-fullheight">
@@ -11,13 +38,17 @@ class RequestWalk extends Component {
               <div className="box">
                 <form
                   id="request_form"
-                  onSubmit={(e) => this.SOMEFUNTCION(e)}
+                  onSubmit={(e) => this.submitReqForm(e)}
                 >
 
                   <div className="field has-addons">
                     <div className="control is-expanded">
                       <div className="select is-fullwidth">
-                        <select name="dog_name" id="dog_name">
+                        <select
+                          name="dog_name"
+                          id="dog_name"
+                          onChange={this.onChange}
+                        >
                           <option value="">Select dog</option>
                           <option value="Argentina">Aquila</option>
                           <option value="Brazil">Bacon</option>
@@ -25,9 +56,9 @@ class RequestWalk extends Component {
                         </select>
                       </div>
                     </div>
-                    <div className="control">
+                    {/* <div className="control">
                       <button type="submit" className="button is-warning">Choose</button>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="field">
@@ -55,6 +86,7 @@ class RequestWalk extends Component {
                         onChange={this.onChange}
                         required
                       />
+                      <span className="help">hr:min am/pm</span>
                     </div>
                   </div>
 
@@ -73,4 +105,8 @@ class RequestWalk extends Component {
   }
 }
 
-export default RequestWalk;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  requestWalk
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(RequestWalk)
