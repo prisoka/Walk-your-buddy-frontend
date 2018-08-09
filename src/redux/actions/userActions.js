@@ -178,7 +178,6 @@ export const userLogout = (history) => {
         type: USER_LOGOUT_SUCCESS,
       })
       history.push('/')
-      window.cookies.remove()
     } catch(err) {
       dispatch({
         type: USER_LOGOUT_FAILED,

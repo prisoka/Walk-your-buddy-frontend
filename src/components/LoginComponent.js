@@ -36,9 +36,6 @@ class Login extends Component {
               <h3 className="title has-text-grey">Login</h3>
               <p className="subtitle has-text-grey">Login to access your WYB account.</p>
               <div className="box">
-                <figure className="avatar">
-                  <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="user_photo"/>
-                </figure>
                 <form
                   onSubmit={(e) => this.submitLoginForm(e)}
                 >
