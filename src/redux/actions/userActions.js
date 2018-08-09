@@ -10,6 +10,10 @@ export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
 export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
 export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
 
+export const REQUEST_PENDING = 'REQUEST_PENDING'
+export const REQUEST_SUCCESS = 'REQUEST_SUCCESS'
+export const REQUEST_FAILED = 'REQUEST_FAILED'
+
 export const USER_LOGOUT_PENDING = 'USER_LOGOUT'
 export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT'
 export const USER_LOGOUT_FAILED = 'USER_LOGOUT'
@@ -113,6 +117,41 @@ export const addDog = (newDog, history) => {
   }
 }
 
+export const requestWalk = (newRequest, history) => {
+  return async(dispatch) => {
+    try {
+      dispatch({type: REQUEST_PENDING})
+      let response = await fetch(`${BASE_URL}/request`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+        },
+        credentials: 'include',
+        body: JSON.stringify(newRequest)
+      })
+      .then ((response) => {
+        if (response.status < 300) {
+          return response;
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+      let reqObject = await response.json()
+      dispatch({
+        type: REQUEST_SUCCESS,
+        payload: reqObject
+      })
+      history.push('/user_index')
+    } catch(err) {
+      dispatch({
+        type: REQUEST_FAILED,
+        payload: err
+      })
+    }
+  }
+}
+
 export const userLogout = (history) => {
 
   return async (dispatch) => {
@@ -139,7 +178,7 @@ export const userLogout = (history) => {
         type: USER_LOGOUT_SUCCESS,
       })
       history.push('/')
-
+      window.cookies.remove()
     } catch(err) {
       dispatch({
         type: USER_LOGOUT_FAILED,
