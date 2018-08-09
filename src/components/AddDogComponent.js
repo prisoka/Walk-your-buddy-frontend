@@ -77,7 +77,7 @@ class AddDog extends Component {
                   <div className="field">
                     <label className="label has-text-left" htmlFor="dog_size">Size</label>
                     <div className="control">
-                      <div className="select is-primary">
+                      <div className="select is-warning">
                         <select
                             id='dog_size'
                             name="dog_size"
@@ -96,7 +96,7 @@ class AddDog extends Component {
 
                   <div className="field is-grouped is-grouped-centered">
                     <p className="control">
-                      <input id="add_dog_submit_btn" type='submit' className="button is-primary is-rounded" value="Add My Dog" />
+                      <input id="add_dog_submit_btn" type='submit' className="button is-warning is-rounded" value="Add My Dog" />
                     </p>
                   </div>
                 </form>

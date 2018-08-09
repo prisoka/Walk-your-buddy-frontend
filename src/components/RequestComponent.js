@@ -26,7 +26,7 @@ class RequestWalk extends Component {
                       </div>
                     </div>
                     <div className="control">
-                      <button type="submit" className="button is-primary">Choose</button>
+                      <button type="submit" className="button is-warning">Choose</button>
                     </div>
                   </div>
 
@@ -60,7 +60,7 @@ class RequestWalk extends Component {
 
                   <div className="field is-grouped is-grouped-centered">
                     <p className="control">
-                      <input id="request_walk_btn" type='submit' className="button is-primary is-rounded" value="Request" />
+                      <input id="request_walk_btn" type='submit' className="button is-warning is-rounded" value="Request" />
                     </p>
                   </div>
                 </form>

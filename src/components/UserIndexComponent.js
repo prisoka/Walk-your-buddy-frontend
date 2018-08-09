@@ -13,7 +13,7 @@ class UserIndex extends Component {
               </h1>
               <br/>
               <p className="has-text-centered">
-                <Link to="/request" className="button is-warning is-inverted is-rounded is-focused is-medium">Book A Walk</Link> &nbsp;
+                <Link to="/add_dog" className="button is-warning is-inverted is-rounded is-focused is-medium">Add Your Dog</Link>
               </p>
             </div>
           </div>
@@ -27,7 +27,7 @@ class UserIndex extends Component {
                     Available walkers near you:
                   </h2>
                   <p className="has-text-centered">
-                    <Link to="/add_dog" className="button is-warning is-medium">Add Your Dog</Link>
+                    <Link to="/request" className="button is-warning is-medium">Book A Walk</Link> &nbsp;
                   </p>
                   <br/>
                   <p className="has-text-centered">
