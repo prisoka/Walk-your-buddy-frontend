@@ -12,7 +12,9 @@ export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
 export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
 export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
 
-export const USER_LOGOUT = 'USER_LOGOUT'
+export const USER_LOGOUT_PENDING = 'USER_LOGOUT'
+export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT'
+export const USER_LOGOUT_FAILED = 'USER_LOGOUT'
 
 const BASE_URL = 'http://localhost:3000/api'
 
@@ -114,9 +116,37 @@ export const addDog = (newDog, history) => {
 }
 
 export const userLogout = (history) => {
-  window.cookies.remove()
-  return (dispatch) => {
-    dispatch({type: USER_LOGOUT})
-    history.push('/')
+
+  return async (dispatch) => {
+    try {
+      dispatch({type: USER_LOGOUT_PENDING})
+
+      let response = await fetch(`${BASE_URL}/logout`, {
+        method: "GET",
+        headers: {
+          'Content-Type':'application/json',
+          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+        },
+        credentials: 'include'
+      })
+      .then ((response) => {
+        if (response.status < 300) {
+          return response;
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+
+      dispatch({
+        type: USER_LOGOUT_SUCCESS,
+      })
+      history.push('/')
+
+    } catch(err) {
+      dispatch({
+        type: USER_LOGOUT_FAILED,
+        payload: err
+      })
+    }
   }
 }
