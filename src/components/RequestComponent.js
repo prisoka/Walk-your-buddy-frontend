@@ -7,16 +7,12 @@ class RequestWalk extends Component {
 
   state = {
     request_date:'',
-    request_time:'',
+    request_time:''
   }
 
   submitReqForm = (e) => {
     e.preventDefault()
-    const {
-      request_date,
-      request_time,
-    } = this.state
-
+    const { request_date, request_time } = this.state
     const { requestWalk, history } = this.props
     let newRequest = {
       request_date: request_date,
@@ -48,6 +44,7 @@ class RequestWalk extends Component {
                           name="dog_name"
                           id="dog_name"
                           onChange={this.onChange}
+                          required
                         >
                           <option value="">Select dog</option>
                           <option value="Argentina">Aquila</option>

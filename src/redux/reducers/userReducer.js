@@ -1,4 +1,6 @@
 import {
+  FETCH_USERS_SUCCESS,
+  FETCH_USERS_FAILED,
   USER_SIGNUP_PENDING,
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAILED,
@@ -21,6 +23,10 @@ let initialState = ''
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case FETCH_USERS_SUCCESS:
+      return {...payload}
+    case FETCH_USERS_FAILED:
+      return {payload}
     case USER_SIGNUP_PENDING:
       return {...state}
     case USER_SIGNUP_SUCCESS:

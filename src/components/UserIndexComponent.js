@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 class UserIndex extends Component {
+  state = ''
   render() {
+    const { users } = this.props
+
     return (
       <div>
         <section className="hero is-warning is-medium is-bold">
           <div className="hero-body has-bg-img">
             <div className="container has-text-centered">
               <h1 className="title">
-                Hi, USER_NAME!
+                Hi, {this.props.first_name}!
               </h1>
               <br/>
               <p className="has-text-centered">
@@ -52,4 +56,9 @@ class UserIndex extends Component {
   }
 }
 
-export default UserIndex;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users
+  }
+}
+export default connect(mapStateToProps, null)(UserIndex)

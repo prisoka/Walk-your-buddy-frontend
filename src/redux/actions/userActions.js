@@ -1,3 +1,6 @@
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+export const FETCH_USERS_FAILED = 'FETCH_USERS_FAILED'
+
 export const USER_SIGNUP_PENDING = 'USER_SIGNUP_PENDING'
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
@@ -19,6 +22,24 @@ export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT'
 export const USER_LOGOUT_FAILED = 'USER_LOGOUT'
 
 const BASE_URL = 'http://localhost:3000/api'
+
+export const fetchUsers = () => {
+  return async dispatch => {
+    try {
+      let response = await fetch(`${BASE_URL}/users`)
+      let users = await response.json()
+      dispatch({
+        type: FETCH_USERS_SUCCESS,
+        payload: users
+      })
+    } catch(err) {
+      dispatch({
+        type: FETCH_USERS_FAILED,
+        payload: err
+      })
+    }
+  }
+}
 
 export const userSignup = (newUser, history) => {
   return async (dispatch) => {
