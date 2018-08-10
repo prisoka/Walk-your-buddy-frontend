@@ -7,7 +7,15 @@ class AddDog extends Component {
   state = {
     dog_name:'',
     dog_age:'',
-    dog_size:''
+    dog_size:'',
+    dog_photo: null
+  }
+
+  photoSelectedHandler = (e) => {
+    console.log(e.target.files[0])
+    this.setState({
+      dog_photo: e.target.files[0]
+    })
   }
 
   submitAddDogForm = (e) => {
@@ -16,6 +24,7 @@ class AddDog extends Component {
       dog_name,
       dog_age,
       dog_size,
+      dog_photo
     } = this.state
 
     const { addDog, history } = this.props
@@ -23,6 +32,7 @@ class AddDog extends Component {
       dog_name: dog_name,
       dog_age: dog_age,
       dog_size: dog_size,
+      dog_photo: dog_photo
     }
     addDog(newDog, history)
   }
@@ -42,25 +52,31 @@ class AddDog extends Component {
                 <figure className="avatar">
                   <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="dog_photo"/>
                 </figure>
-                <div>
-                  <div className="file is-small is-centered">
-                    <label className="file-label">
-                      <input className="file-input" type="file" name="resume" />
-                      <span className="file-cta">
-                        <span className="file-icon">
-                          <i className="fas fa-upload"></i>
-                        </span>
-                        <span className="file-label">
-                          Choose a photo…
-                        </span>
-                      </span>
-                    </label>
-                  </div>
-                </div>
                 <form
                   id="create_dog_form"
                   onSubmit={(e) => this.submitAddDogForm(e)}
                 >
+                  <div>
+                    <div className="file is-small is-centered">
+                      <label className="file-label">
+                        <input
+                          className="file-input"
+                          type="file"
+                          name="dog_photo"
+                          onChange={this.photoSelectedHandler}
+                        />
+                        <span className="file-cta">
+                          <span className="file-icon">
+                            <i className="fas fa-upload"></i>
+                          </span>
+                          <span className="file-label">
+                            Choose a photo…
+                          </span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+
                   <div className="field">
                     <label className="label has-text-left" htmlFor="dog_name">Name</label>
                     <div className="control">

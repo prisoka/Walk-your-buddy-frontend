@@ -77,6 +77,9 @@ export const userLogin = ({email, password}, history) => {
         }
       })
       let userObject = await response.json()
+
+      localStorage.setItem('userObjectFirstName', userObject.first_name)
+
       if(userObject.user_type === 'walker'){
         history.push('/walker_index')
       } else {
@@ -99,7 +102,6 @@ export const userLogout = (history) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_LOGOUT_PENDING})
-
       let response = await fetch(`${BASE_URL}/logout`, {
         method: "GET",
         headers: {
@@ -115,7 +117,7 @@ export const userLogout = (history) => {
           throw new Error(response.statusText);
         }
       })
-
+      localStorage.clear();
       dispatch({
         type: USER_LOGOUT_SUCCESS,
       })

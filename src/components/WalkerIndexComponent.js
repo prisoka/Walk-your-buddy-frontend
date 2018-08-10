@@ -31,7 +31,7 @@ class WalkerIndex extends Component {
         </section>
         <section>
           <container>
-            <div id="eventContainer" class="columns is-left is-multiline" style={{padding: "2rem"}}>
+            <div id="eventContainer" className="columns is-left is-multiline" style={{padding: "2rem"}}>
               {requests.map((request) => (
                 <DogCard
                   key={request.id}
