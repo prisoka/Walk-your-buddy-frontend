@@ -7,20 +7,20 @@ import {
 }
 from '../actions/requestsActions'
 
-let initialState = {}
+let initialState = []
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case FETCH_REQUESTS_SUCCESS:
-      return {...payload}
+      return [...payload]
     case FETCH_REQUESTS_FAILED:
-      return {payload}
+      return [...payload]
     case REQUEST_PENDING:
-      return {...state}
+      return [...state]
     case REQUEST_SUCCESS:
-      return {...state}
+      return [...state]
     case REQUEST_FAILED:
-      return {payload}
+      return [payload]
     default:
       return state
   }

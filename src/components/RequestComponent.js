@@ -6,15 +6,17 @@ import { requestWalk } from '../redux/actions/requestsActions'
 class RequestWalk extends Component {
 
   state = {
+    dog_id:'',
     request_date:'',
     request_time:''
   }
 
   submitReqForm = (e) => {
     e.preventDefault()
-    const { request_date, request_time } = this.state
+    const { dog_id, request_date, request_time } = this.state
     const { requestWalk, history } = this.props
     let newRequest = {
+      dog_id: dog_id,
       request_date: request_date,
       request_time: request_time,
     }
@@ -25,6 +27,7 @@ class RequestWalk extends Component {
   })
 
   render() {
+    const { dogs } = this.props
     return (
       <section className="hero is-fullheight">
         <div className="hero-body">
@@ -41,15 +44,22 @@ class RequestWalk extends Component {
                     <div className="control is-expanded">
                       <div className="select is-fullwidth">
                         <select
-                          name="dog_name"
-                          id="dog_name"
+                          name="dog_id"
+                          id="dog_id"
                           onChange={this.onChange}
                           required
                         >
                           <option value="">Select dog</option>
-                          <option value="Argentina">Aquila</option>
-                          <option value="Brazil">Bacon</option>
-                          <option value="Chile">Pipoca</option>
+                          {
+                            dogs.map((dog) => (
+                              <option
+                                key={request.id}
+                                dog={dog_name}
+                              >
+                              </option>
+                            ))
+                          }
+
                         </select>
                       </div>
                     </div>
@@ -102,8 +112,14 @@ class RequestWalk extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    dogs: state.dogs,
+  }
+}
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   requestWalk
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(RequestWalk)
+export default connect(mapStateToPropss, mapDispatchToProps)(RequestWalk)

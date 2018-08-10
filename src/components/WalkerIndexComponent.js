@@ -8,12 +8,10 @@ import { fetchRequests } from '../redux/actions/requestsActions'
 class WalkerIndex extends Component {
   componentDidMount(){
     const { fetchRequests } = this.props
-
     fetchRequests()
   }
   render() {
-    const { user } = this.props
-
+    const { user, requests } = this.props
     return (
       <div>
         <section className="hero is-link is-medium is-bold">
@@ -32,9 +30,16 @@ class WalkerIndex extends Component {
           </div>
         </section>
         <section>
-          <div>
-            <DogCard />
-          </div>
+          <container>
+            <div id="eventContainer" class="columns is-left is-multiline" style={{padding: "2rem"}}>
+              {requests.map((request) => (
+                <DogCard
+                  key={request.id}
+                  request={request}
+                />
+              ))}
+            </div>
+          </container>
         </section>
       </div>
     );
@@ -43,7 +48,8 @@ class WalkerIndex extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    requests: state.requests
   }
 }
 
