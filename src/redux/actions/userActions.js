@@ -9,10 +9,6 @@ export const USER_LOGIN_PENDING = 'USER_LOGIN_PENDING'
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
 
-export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
-export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
-export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
-
 export const USER_LOGOUT_PENDING = 'USER_LOGOUT'
 export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT'
 export const USER_LOGOUT_FAILED = 'USER_LOGOUT'
@@ -98,41 +94,6 @@ export const userLogin = ({email, password}, history) => {
     }
   }
 };
-
-export const addDog = (newDog, history) => {
-  return async(dispatch) => {
-    try {
-      dispatch({type: ADD_DOG_PENDING})
-      let response = await fetch(`${BASE_URL}/dogs`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
-        },
-        credentials: 'include',
-        body: JSON.stringify(newDog)
-      })
-      .then ((response) => {
-        if (response.status < 300) {
-          return response;
-        } else {
-          throw new Error(response.statusText);
-        }
-      })
-      let dogObject = await response.json()
-      dispatch({
-        type: ADD_DOG_SUCCESS,
-        payload: dogObject
-      })
-      history.push('/user_index')
-    } catch(err) {
-      dispatch({
-        type: ADD_DOG_FAILED,
-        payload: err
-      })
-    }
-  }
-}
 
 export const userLogout = (history) => {
   return async (dispatch) => {

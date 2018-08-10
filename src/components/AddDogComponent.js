@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addDog } from '../redux/actions/userActions'
+import { addDog } from '../redux/actions/dogsActions'
 
 class AddDog extends Component {
   state = {
@@ -43,14 +43,14 @@ class AddDog extends Component {
                   <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="dog_photo"/>
                 </figure>
                 <div>
-                  <div class="file is-small is-centered">
-                    <label class="file-label">
-                      <input class="file-input" type="file" name="resume" />
-                      <span class="file-cta">
-                        <span class="file-icon">
-                          <i class="fas fa-upload"></i>
+                  <div className="file is-small is-centered">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-upload"></i>
                         </span>
-                        <span class="file-label">
+                        <span className="file-label">
                           Choose a photo…
                         </span>
                       </span>
@@ -83,6 +83,7 @@ class AddDog extends Component {
                         name='dog_age'
                         className="input"
                         type="number"
+                        min="0"
                         onChange={this.onChange}
                         required
                       />

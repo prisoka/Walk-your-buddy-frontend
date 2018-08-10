@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { requestWalk } from '../redux/actions/requestsActions'
+import { fetchDogs } from '../redux/actions/dogsActions'
 
 class RequestWalk extends Component {
 
@@ -9,6 +10,11 @@ class RequestWalk extends Component {
     dog_id:'',
     request_date:'',
     request_time:''
+  }
+
+  componentDidMount(){
+    const { fetchDogs } = this.props
+    fetchDogs()
   }
 
   submitReqForm = (e) => {
@@ -22,6 +28,7 @@ class RequestWalk extends Component {
     }
     requestWalk(newRequest, history)
   }
+
   onChange = (e) => this.setState({
     [e.target.name]: e.target.value
   })
@@ -52,11 +59,7 @@ class RequestWalk extends Component {
                           <option value="">Select dog</option>
                           {
                             dogs.map((dog) => (
-                              <option
-                                key={request.id}
-                                dog={dog_name}
-                              >
-                              </option>
+                              <option value={dog.id} key={dog.id}> {dog.dog_name} </option>
                             ))
                           }
 
@@ -119,7 +122,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  requestWalk
+  requestWalk,
+  fetchDogs
 }, dispatch)
 
-export default connect(mapStateToPropss, mapDispatchToProps)(RequestWalk)
+export default connect(mapStateToProps, mapDispatchToProps)(RequestWalk)
