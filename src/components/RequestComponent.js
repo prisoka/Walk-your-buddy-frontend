@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { requestWalk } from '../redux/actions/userActions'
+import { requestWalk } from '../redux/actions/requestsActions'
 
 class RequestWalk extends Component {
 

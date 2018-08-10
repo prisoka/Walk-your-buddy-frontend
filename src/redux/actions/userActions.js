@@ -1,5 +1,5 @@
-export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
-export const FETCH_USERS_FAILED = 'FETCH_USERS_FAILED'
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
+export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
 
 export const USER_SIGNUP_PENDING = 'USER_SIGNUP_PENDING'
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
@@ -13,28 +13,24 @@ export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
 export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
 export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
 
-export const REQUEST_PENDING = 'REQUEST_PENDING'
-export const REQUEST_SUCCESS = 'REQUEST_SUCCESS'
-export const REQUEST_FAILED = 'REQUEST_FAILED'
-
 export const USER_LOGOUT_PENDING = 'USER_LOGOUT'
 export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT'
 export const USER_LOGOUT_FAILED = 'USER_LOGOUT'
 
 const BASE_URL = 'http://localhost:3000/api'
 
-export const fetchUsers = () => {
+export const fetchUser = (id) => {
   return async dispatch => {
     try {
-      let response = await fetch(`${BASE_URL}/users`)
-      let users = await response.json()
+      let response = await fetch(`${BASE_URL}/user/${id}`)
+      let user = await response.json()
       dispatch({
-        type: FETCH_USERS_SUCCESS,
-        payload: users
+        type: FETCH_USER_SUCCESS,
+        payload: user
       })
     } catch(err) {
       dispatch({
-        type: FETCH_USERS_FAILED,
+        type: FETCH_USER_FAILED,
         payload: err
       })
     }
@@ -92,7 +88,7 @@ export const userLogin = ({email, password}, history) => {
       }
       dispatch({
         type: USER_LOGIN_SUCCESS,
-        payload: response
+        payload: userObject
       })
     } catch(err) {
       dispatch({
@@ -138,43 +134,7 @@ export const addDog = (newDog, history) => {
   }
 }
 
-export const requestWalk = (newRequest, history) => {
-  return async(dispatch) => {
-    try {
-      dispatch({type: REQUEST_PENDING})
-      let response = await fetch(`${BASE_URL}/requests`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
-        },
-        credentials: 'include',
-        body: JSON.stringify(newRequest)
-      })
-      .then ((response) => {
-        if (response.status < 300) {
-          return response;
-        } else {
-          throw new Error(response.statusText);
-        }
-      })
-      let reqObject = await response.json()
-      dispatch({
-        type: REQUEST_SUCCESS,
-        payload: reqObject
-      })
-      history.push('/user_index')
-    } catch(err) {
-      dispatch({
-        type: REQUEST_FAILED,
-        payload: err
-      })
-    }
-  }
-}
-
 export const userLogout = (history) => {
-
   return async (dispatch) => {
     try {
       dispatch({type: USER_LOGOUT_PENDING})

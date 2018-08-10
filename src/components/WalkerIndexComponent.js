@@ -1,16 +1,26 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import DogCard from './DogCardComponent'
+import { fetchRequests } from '../redux/actions/requestsActions'
 
 class WalkerIndex extends Component {
+  componentDidMount(){
+    const { fetchRequests } = this.props
+
+    fetchRequests()
+  }
   render() {
+    const { user } = this.props
+
     return (
       <div>
         <section className="hero is-link is-medium is-bold">
           <div className="hero-body has-bg-img">
             <div className="container has-text-centered">
               <h1 className="title">
-                Hi, WALKER_NAME!
+                Hi, {user.first_name}!
               </h1>
               <h2 className="subtitle">
                 HERE ARE THE DOGS REQUESTS:
@@ -31,4 +41,14 @@ class WalkerIndex extends Component {
   }
 }
 
-export default WalkerIndex;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchRequests
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(WalkerIndex)

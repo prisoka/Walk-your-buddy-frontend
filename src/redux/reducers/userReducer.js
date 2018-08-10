@@ -1,6 +1,6 @@
 import {
-  FETCH_USERS_SUCCESS,
-  FETCH_USERS_FAILED,
+  FETCH_USER_SUCCESS,
+  FETCH_USER_FAILED,
   USER_SIGNUP_PENDING,
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAILED,
@@ -13,30 +13,27 @@ import {
   ADD_DOG_PENDING,
   ADD_DOG_SUCCESS,
   ADD_DOG_FAILED,
-  REQUEST_PENDING,
-  REQUEST_SUCCESS,
-  REQUEST_FAILED,
 }
 from '../actions/userActions'
 
-let initialState = ''
+let initialState = {}
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case FETCH_USERS_SUCCESS:
+    case FETCH_USER_SUCCESS:
       return {...payload}
-    case FETCH_USERS_FAILED:
+    case FETCH_USER_FAILED:
       return {payload}
     case USER_SIGNUP_PENDING:
       return {...state}
     case USER_SIGNUP_SUCCESS:
-      return {...state}
+      return {...payload}
     case USER_SIGNUP_FAILED:
       return {payload}
     case USER_LOGIN_PENDING:
       return {...state}
     case USER_LOGIN_SUCCESS:
-      return {...state}
+      return {...payload}
     case USER_LOGIN_FAILED:
       return {payload}
     case USER_LOGOUT_PENDING:
@@ -50,12 +47,6 @@ export default (state = initialState, { type, payload }) => {
     case ADD_DOG_SUCCESS:
       return {...state, payload}
     case ADD_DOG_FAILED:
-      return {payload}
-    case REQUEST_PENDING:
-      return {...state}
-    case REQUEST_SUCCESS:
-      return {...state, payload}
-    case REQUEST_FAILED:
       return {payload}
     default:
       return state

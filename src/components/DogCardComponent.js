@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class DogCard extends Component {
   render() {
+    // const {  } = this.props
     return (
       <div className="column is-one-quarter">
         <div className="card">
@@ -13,8 +14,8 @@ class DogCard extends Component {
           <div className="card-content">
             <div className="media">
               <div className="media-content">
-                <p className="title is-4">Aquila</p>
-                <p className="subtitle is-6">owner: Priscilla</p>
+                <p className="title is-4">Dog: Aquila</p>
+                <p className="subtitle is-6">Owner: Priscilla</p>
               </div>
             </div>
             <div className="media">
