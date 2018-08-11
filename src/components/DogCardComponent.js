@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+var dateFormat = require('dateformat');
 
 class DogCard extends Component {
   render() {
     const { dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip } = this.props.request
+    const formattedDate = dateFormat(request_date, "mm-dd-yyyy");
+
     return (
       <div className="column is-one-quarter">
         <div className="card">
@@ -25,7 +28,7 @@ class DogCard extends Component {
 
             <div className="content">
               <p className="subtitle is-6">Date:</p>
-              <p dateTime="2016-1-1">{request_date}</p>
+              <p dateTime="2016-1-1">{formattedDate}</p>
             </div>
           </div>
 
