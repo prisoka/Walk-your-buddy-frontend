@@ -36,14 +36,22 @@ export const addDog = (newDog, history) => {
   return async(dispatch) => {
     try {
       dispatch({type: ADD_DOG_PENDING})
+      let formData = new FormData();
+      formData.append('dog_name', newDog.dog_name)
+      formData.append('dog_age', newDog.dog_age)
+      formData.append('dog_size', newDog.dog_size)
+      formData.append('dog_photo', newDog.dog_photo)
+      // formData.append('dog', newDog)
+
       let response = await fetch(`${BASE_URL}/dogs`, {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
           'Access-Control-Request-Headers': 'Authorization, Content-Type'
         },
         credentials: 'include',
-        body: JSON.stringify(newDog)
+        // body: JSON.stringify(newDog)
+        body: formData
       })
       .then ((response) => {
         if (response.status < 300) {

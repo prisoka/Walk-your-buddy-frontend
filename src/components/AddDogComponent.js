@@ -8,14 +8,25 @@ class AddDog extends Component {
     dog_name:'',
     dog_age:'',
     dog_size:'',
-    dog_photo: null
+    dog_photo: null,
+    imagePreviewUrl: null
   }
 
   photoSelectedHandler = (e) => {
-    console.log(e.target.files[0])
-    this.setState({
-      dog_photo: e.target.files[0]
-    })
+    let file = e.target.files[0];
+
+    if (file) {
+      let reader = new FileReader();
+
+      reader.onload = () => {
+        this.setState({
+          dog_photo: file,
+          imagePreviewUrl: reader.result
+        });
+      };
+
+      reader.readAsDataURL(file);
+    }
   }
 
   submitAddDogForm = (e) => {
@@ -42,6 +53,8 @@ class AddDog extends Component {
   })
 
   render() {
+    const { imagePreviewUrl } = this.state
+
     return (
       <section className="hero is-fullheight">
         <div className="hero-body">
@@ -50,7 +63,11 @@ class AddDog extends Component {
               <h3 className="title has-text-grey">Add Your Dog</h3>
               <div className="box">
                 <figure className="avatar">
-                  <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="dog_photo"/>
+                  <img
+                    className="is-rounded"
+                    src={ imagePreviewUrl ? imagePreviewUrl : "https://bulma.io/images/placeholders/128x128.png" }
+                    alt="dog_photo"
+                  />
                 </figure>
                 <form
                   id="create_dog_form"
