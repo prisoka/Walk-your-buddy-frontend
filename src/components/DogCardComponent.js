@@ -20,31 +20,31 @@ class DogCard extends Component {
           <div className="card-content">
             <div className="media">
               <div className="media-content">
-                <p className="title is-4">Dog: {dog_name}</p>
-                <p className="subtitle is-6">Owner: {first_name}</p>
+                <p className="title is-4"><b>Dog: </b>{dog_name}</p>
+                <p className="subtitle is-6"><b>Owner: </b>{first_name}</p>
               </div>
             </div>
             <div className="media">
 
             <div className="content">
-              <p className="subtitle is-6">Date:</p>
+              <p className="subtitle is-6"><b>Date:</b></p>
               <p dateTime="2016-1-1">{formattedDate}</p>
             </div>
           </div>
 
             <div className="content">
-              <p className="subtitle is-6">Time:</p>
+              <p className="subtitle is-6"><b>Time:</b></p>
               <p dateTime="2016-1-1">{request_time}</p>
             </div>
 
             <div className="content">
-              <p className="subtitle is-6">Pickup at:</p>
+              <p className="subtitle is-6"><b>Pickup at:</b></p>
               <p className="subtitle is-6">{address_one + ", " + address_two + ", " + zip}</p>
             </div>
           </div>
-            <footer className="card-footer">
-            <a href="#" className="card-footer-item">Accept</a>
-            <a href="#" className="card-footer-item">Decline</a>
+          <footer className="card-footer">
+            <a href="#" className="card-footer-item button is-success is-outlined">Accept</a>
+            <a href="#" className="card-footer-item button is-danger is-outlined">Decline</a>
           </footer>
         </div>
       </div>
