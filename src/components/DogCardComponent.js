@@ -41,21 +41,26 @@ class DogCard extends Component {
               <p className="subtitle is-6"><b>Pickup at:</b></p>
               <p className="subtitle is-6">{address_one + ", " + address_two + ", " + zip}</p>
             </div>
+
+            <div className="field is-grouped">
+              <p className="control">
+                <a className="button is-success is-outlined is-centered">
+                  <span className="icon is-small">
+                    <i className="fas fa-check"></i>
+                  </span>
+                  <span>Accept</span>
+                </a>
+              </p>
+              <p className="control">
+                <a className="button is-danger is-outlined is-centered">
+                  <span>Decline</span>
+                  <span className="icon is-small">
+                    <i className="fas fa-times"></i>
+                  </span>
+                </a>
+              </p>
+            </div>
           </div>
-          <footer className="card-footer">
-            <a href="#" className="card-footer-item button is-success is-outlined">
-              <span>Accept</span>
-              <span class="icon is-small">
-                <i class="fas fa-check"></i>
-              </span>
-            </a>
-            <a href="#" className="card-footer-item button is-danger is-outlined">
-              <span>Decline</span>
-              <span class="icon is-small">
-                <i class="fas fa-times"></i>
-              </span>
-            </a>
-          </footer>
         </div>
       </div>
     )
