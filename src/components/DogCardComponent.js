@@ -43,8 +43,18 @@ class DogCard extends Component {
             </div>
           </div>
           <footer className="card-footer">
-            <a href="#" className="card-footer-item button is-success is-outlined">Accept</a>
-            <a href="#" className="card-footer-item button is-danger is-outlined">Decline</a>
+            <a href="#" className="card-footer-item button is-success is-outlined">
+              <span>Accept</span>
+              <span class="icon is-small">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+            <a href="#" className="card-footer-item button is-danger is-outlined">
+              <span>Decline</span>
+              <span class="icon is-small">
+                <i class="fas fa-times"></i>
+              </span>
+            </a>
           </footer>
         </div>
       </div>
