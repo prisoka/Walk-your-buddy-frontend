@@ -49,10 +49,10 @@ export const requestWalk = (newRequest, history) => {
           throw new Error(response.statusText);
         }
       })
-      let reqObject = await response.json()
+      let responseObject = await response.json()
       dispatch({
         type: REQUEST_SUCCESS,
-        payload: reqObject
+        payload: responseObject
       })
       history.push('/user_index')
     } catch(err) {
@@ -68,6 +68,8 @@ export const walkerAcceptsReq = (acceptedRequest, history) => {
   return async(dispatch) => {
     try {
       dispatch({type: ACCEPT_REQUEST_PENDING})
+      // let user_id =
+
       let response = await fetch(`${BASE_URL}/requests/${acceptedRequest.id}`, {
         method: "PUT",
         headers: {
@@ -84,10 +86,10 @@ export const walkerAcceptsReq = (acceptedRequest, history) => {
           throw new Error(response.statusText);
         }
       })
-      let resObject = await response.json()
+      let responseObject = await response.json()
       dispatch({
         type: ACCEPT_REQUEST_SUCCESS,
-        payload: resObject
+        payload: responseObject
       })
     } catch(err) {
       dispatch({

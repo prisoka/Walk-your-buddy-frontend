@@ -27,7 +27,14 @@ export default (state = initialState, { type, payload }) => {
     case ACCEPT_REQUEST_PENDING:
       return [...state]
     case ACCEPT_REQUEST_SUCCESS:
-      return [...state]
+      const newState = state.map((request) => {
+        if(request.id === payload.id){
+          return payload
+        } else {
+          return request
+        }
+      })
+      return newState
     case ACCEPT_REQUEST_FAILED:
       return [payload]
     default:
