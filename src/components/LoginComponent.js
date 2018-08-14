@@ -76,7 +76,12 @@ class Login extends Component {
                   </div>
                   <div className="field is-grouped is-grouped-centered">
                     <p className="control">
-                      <input id="login_submit-form" type='submit' className="button is-primary is-rounded" value="Login" />
+                      <input
+                        id="login_submit-form"
+                        type='submit'
+                        className="button is-primary is-rounded"
+                        value="Login"
+                      />
                     </p>
                   </div>
                 </form>

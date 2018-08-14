@@ -30,16 +30,15 @@ class WalkerIndex extends Component {
           </div>
         </section>
         <section>
-          <container>
-            <div id="eventContainer" className="columns is-left is-multiline" style={{padding: "2rem"}}>
-              {requests.map((request) => (
-                <DogCard
-                  key={request.id}
-                  request={request}
-                />
-              ))}
-            </div>
-          </container>
+          <div id="eventContainer" className="columns is-left is-multiline" style={{padding: "2rem"}}>
+            {requests.map((request) => (
+              <DogCard
+                key={request.id}
+                request={request}
+                {...this.props} // passing the props to inject history to child/children
+              />
+            ))}
+          </div>
         </section>
       </div>
     );

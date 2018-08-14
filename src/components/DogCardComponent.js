@@ -1,9 +1,37 @@
 import React, { Component } from 'react';
-var dateFormat = require('dateformat');
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { walkerAcceptsReq } from '../redux/actions/requestsActions';
+const dateFormat = require('dateformat');
 
 class DogCard extends Component {
+
+  acceptRequest = (e) => {
+    e.preventDefault()
+    const {
+      id,
+      user_id,
+      dog_id,
+      request_date,
+      request_time,
+      walker_id
+    } = this.props.request
+
+    const { walkerAcceptsReq, history } = this.props
+
+    let acceptedRequest = {
+      id: id,
+      user_id: user_id,
+      dog_id: dog_id,
+      request_date: request_date,
+      request_time: request_time,
+      walker_id: walker_id,
+    }
+    walkerAcceptsReq(acceptedRequest, history)
+  }
+
   render() {
-    const { dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip } = this.props.request
+    const { id, dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip } = this.props.request
     const formattedDate = dateFormat(request_date, "mm-dd-yyyy");
 
     return (
@@ -17,6 +45,7 @@ class DogCard extends Component {
               />
             </figure>
           </div>
+
           <div className="card-content">
             <div className="media">
               <div className="media-content">
@@ -24,13 +53,13 @@ class DogCard extends Component {
                 <p className="subtitle is-6"><b>Owner: </b>{first_name}</p>
               </div>
             </div>
-            <div className="media">
 
-            <div className="content">
-              <p className="subtitle is-6"><b>Date:</b></p>
-              <p dateTime="2016-1-1">{formattedDate}</p>
+            <div className="media">
+              <div className="content">
+                <p className="subtitle is-6"><b>Date:</b></p>
+                <p dateTime="2016-1-1">{formattedDate}</p>
+              </div>
             </div>
-          </div>
 
             <div className="content">
               <p className="subtitle is-6"><b>Time:</b></p>
@@ -44,7 +73,11 @@ class DogCard extends Component {
 
             <div className="field is-grouped">
               <p className="control">
-                <a className="button is-success is-outlined is-centered">
+                <a
+                  className="button is-success is-outlined is-centered"
+                  type='submit'
+                  onClick={(e) => this.acceptRequest(e)}
+                  >
                   <span className="icon is-small">
                     <i className="fas fa-check"></i>
                   </span>
@@ -67,4 +100,8 @@ class DogCard extends Component {
   }
 }
 
-export default DogCard;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  walkerAcceptsReq,
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(DogCard)

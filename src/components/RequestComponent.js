@@ -5,7 +5,6 @@ import { requestWalk } from '../redux/actions/requestsActions'
 import { fetchDogs } from '../redux/actions/dogsActions'
 
 class RequestWalk extends Component {
-
   state = {
     dog_id:'',
     request_date:'',
@@ -66,9 +65,6 @@ class RequestWalk extends Component {
                         </select>
                       </div>
                     </div>
-                    {/* <div className="control">
-                      <button type="submit" className="button is-warning">Choose</button>
-                    </div> */}
                   </div>
 
                   <div className="field">
@@ -102,7 +98,12 @@ class RequestWalk extends Component {
 
                   <div className="field is-grouped is-grouped-centered">
                     <p className="control">
-                      <input id="request_walk_btn" type='submit' className="button is-warning is-rounded" value="Request" />
+                      <input
+                        id="request_walk_btn"
+                        type='submit'
+                        className="button is-warning is-rounded"
+                        value="Request"
+                      />
                     </p>
                   </div>
                 </form>

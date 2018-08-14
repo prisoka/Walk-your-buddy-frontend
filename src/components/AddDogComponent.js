@@ -17,14 +17,12 @@ class AddDog extends Component {
 
     if (file) {
       let reader = new FileReader();
-
       reader.onload = () => {
         this.setState({
           dog_photo: file,
           imagePreviewUrl: reader.result
         });
       };
-
       reader.readAsDataURL(file);
     }
   }

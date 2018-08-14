@@ -46,11 +46,9 @@ export const addDog = (newDog, history) => {
       let response = await fetch(`${BASE_URL}/dogs`, {
         method: "POST",
         headers: {
-          // 'Content-Type': 'application/json',
           'Access-Control-Request-Headers': 'Authorization, Content-Type'
         },
         credentials: 'include',
-        // body: JSON.stringify(newDog)
         body: formData
       })
       .then ((response) => {

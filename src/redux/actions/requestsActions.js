@@ -5,6 +5,10 @@ export const REQUEST_PENDING = 'REQUEST_PENDING'
 export const REQUEST_SUCCESS = 'REQUEST_SUCCESS'
 export const REQUEST_FAILED = 'REQUEST_FAILED'
 
+export const ACCEPT_REQUEST_PENDING = 'ACCEPT_REQUEST_PENDING'
+export const ACCEPT_REQUEST_SUCCESS = 'ACCEPT_REQUEST_SUCCESS'
+export const ACCEPT_REQUEST_FAILED = 'ACCEPT_REQUEST_FAILED'
+
 const BASE_URL = 'http://localhost:3000/api'
 
 export const fetchRequests = () => {
@@ -54,6 +58,40 @@ export const requestWalk = (newRequest, history) => {
     } catch(err) {
       dispatch({
         type: REQUEST_FAILED,
+        payload: err
+      })
+    }
+  }
+}
+
+export const walkerAcceptsReq = (acceptedRequest, history) => {
+  return async(dispatch) => {
+    try {
+      dispatch({type: ACCEPT_REQUEST_PENDING})
+      let response = await fetch(`${BASE_URL}/requests/${acceptedRequest.id}`, {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+        },
+        credentials: 'include',
+        body: JSON.stringify(acceptedRequest)
+      })
+      .then ((response) => {
+        if (response.status < 300) {
+          return response;
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+      let resObject = await response.json()
+      dispatch({
+        type: ACCEPT_REQUEST_SUCCESS,
+        payload: resObject
+      })
+    } catch(err) {
+      dispatch({
+        type: ACCEPT_REQUEST_FAILED,
         payload: err
       })
     }

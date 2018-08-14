@@ -4,6 +4,9 @@ import {
   REQUEST_PENDING,
   REQUEST_SUCCESS,
   REQUEST_FAILED,
+  ACCEPT_REQUEST_PENDING,
+  ACCEPT_REQUEST_SUCCESS,
+  ACCEPT_REQUEST_FAILED,
 }
 from '../actions/requestsActions'
 
@@ -20,6 +23,12 @@ export default (state = initialState, { type, payload }) => {
     case REQUEST_SUCCESS:
       return [...state]
     case REQUEST_FAILED:
+      return [payload]
+    case ACCEPT_REQUEST_PENDING:
+      return [...state]
+    case ACCEPT_REQUEST_SUCCESS:
+      return [...state]
+    case ACCEPT_REQUEST_FAILED:
       return [payload]
     default:
       return state
