@@ -31,7 +31,7 @@ class DogCard extends Component {
   }
 
   render() {
-    const { id, dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip } = this.props.request
+    const { id, dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip, walker_id } = this.props.request
     const formattedDate = dateFormat(request_date, "mm-dd-yyyy");
 
     // if the walker_id exists, and if it matches the token id, conditional render!!!

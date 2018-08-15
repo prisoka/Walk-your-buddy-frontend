@@ -6,7 +6,8 @@ import { bindActionCreators } from 'redux'
 
 class NavBar extends Component {
   state = {
-    navBarExpanded: false
+    navBarExpanded: false,
+    isLoggedIn: false
   }
 
   toggleNav = () => {
@@ -16,8 +17,23 @@ class NavBar extends Component {
     })
   }
 
+  // handleLogin() {
+  //   const { isLoggedIn } = this.state
+  //   this.setState({
+  //     isLoggedIn: !isLoggedIn
+  //   })
+  // }
+  //
+  // handleLogout() {
+  //   const { isLoggedIn } = this.state
+  //   this.setState({
+  //     isLoggedIn: isLoggedIn
+  //   })
+  // }
+
+
   render() {
-    const { navBarExpanded } = this.state
+    const { navBarExpanded, isLoggedIn } = this.state
     const { userLogout, history } = this.props
 
     return (
@@ -42,21 +58,50 @@ class NavBar extends Component {
                 </div>
               </div>
 
-              <div id="navbarMenu" className={navBarExpanded? "navbar-menu is-active" : "navbar-menu"} >
+              <div
+                id="navbarMenu"
+                className={ navBarExpanded ? "navbar-menu is-active" : "navbar-menu" }
+              >
                 <div className="navbar-end">
                   <div className="navbar-item">
                     <Link to="/">Home</Link>
                   </div>
-                  <div className="navbar-item">
-                    <Link to="/signup">Signup</Link>
-                  </div>
-                  <div className="navbar-item">
-                    <Link to="/login">Login</Link>
-                  </div>
-                  <div className="navbar-item">
+
+                  {/* {!isLoggedIn &&
+                    <div className="navbar-end">
+                      <div className="navbar-item">
+                        <Link to="/login">Login</Link>
+                      </div>
+                      <div className="navbar-item">
+                        <Link to="/signup">Signup</Link>
+                      </div>
+                    </div>
+                  }
+
+                  {!isLoggedIn &&
+                    <div className="navbar-item">
+                      <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
+                    </div>
+                  } */}
+
+                  {isLoggedIn ? (
+                    <div className="navbar-item">
+                      <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
+                    </div>
+                  ) : (
+                    <div className="navbar-end">
+                      <div className="navbar-item">
+                        <Link to="/login">Login</Link>
+                      </div>
+                      <div className="navbar-item">
+                        <Link to="/signup">Signup</Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* <div className="navbar-item">
                     <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
-                    {/* <Link to="/">Logout</Link> */}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
