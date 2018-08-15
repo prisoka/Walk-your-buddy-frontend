@@ -5,6 +5,9 @@ import { walkerAcceptsReq } from '../redux/actions/requestsActions';
 const dateFormat = require('dateformat');
 
 class DogCard extends Component {
+  state = {
+    accepted: false
+  }
 
   acceptRequest = (e) => {
     e.preventDefault()
@@ -31,7 +34,8 @@ class DogCard extends Component {
   }
 
   render() {
-    const { id, dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip, walker_id } = this.props.request
+    const { accepted } = this.state
+    const { id, dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip, walker_id, handleAcceptance } = this.props.request
     const formattedDate = dateFormat(request_date, "mm-dd-yyyy");
 
     // if the walker_id exists, and if it matches the token id, conditional render!!!
@@ -72,28 +76,35 @@ class DogCard extends Component {
               <p className="subtitle is-6">{address_one + ", " + address_two + ", " + zip}</p>
             </div>
 
-            <div className="field is-grouped">
-              <p className="control">
-                <a
-                  className="button is-success is-outlined is-centered"
-                  type='submit'
-                  onClick={(e) => this.acceptRequest(e)}
-                  >
-                  <span className="icon is-small">
-                    <i className="fas fa-check"></i>
-                  </span>
-                  <span>Accept</span>
-                </a>
-              </p>
-              <p className="control">
-                <a className="button is-danger is-outlined is-centered">
-                  <span>Decline</span>
-                  <span className="icon is-small">
-                    <i className="fas fa-times"></i>
-                  </span>
-                </a>
-              </p>
-            </div>
+            { accepted ? (
+              <p className="has-text-success">Request Accepted!</p>
+              ) : (
+                <div className="field is-grouped">
+
+                <p className="control">
+                  <a
+                    className="button is-success is-outlined is-centered"
+                    type='submit'
+                    onClick={(e) => this.acceptRequest(e)}
+                    >
+                    <span className="icon is-small">
+                      <i className="fas fa-check"></i>
+                    </span>
+                    <span>Accept</span>
+                  </a>
+                </p>
+                <p className="control">
+                  <a className="button is-danger is-outlined is-centered">
+                    <span>Decline</span>
+                    <span className="icon is-small">
+                      <i className="fas fa-times"></i>
+                    </span>
+                  </a>
+                </p>
+              </div>
+              )
+            }
+
           </div>
         </div>
       </div>
