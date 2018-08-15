@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import Header from './components/HeaderComponent'
 import NavBar from './components/NavBarComponent'
 
@@ -13,8 +15,6 @@ import WalkerIndex from './components/WalkerIndexComponent'
 import Login from './components/LoginComponent'
 
 import Footer from './components/FooterComponent'
-
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   render() {
