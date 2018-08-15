@@ -54,9 +54,6 @@ class NavBar extends Component {
                     <Link to="/login">Login</Link>
                   </div>
                   <div className="navbar-item">
-                    <Link to="/user_profile"> My Account</Link>
-                  </div>
-                  <div className="navbar-item">
                     <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
                     {/* <Link to="/">Logout</Link> */}
                   </div>
