@@ -50,24 +50,6 @@ class NavBar extends Component {
                   <div className="navbar-item">
                     <Link to="/">Home</Link>
                   </div>
-
-                  {/* {!isLoggedIn &&
-                    <div className="navbar-end">
-                      <div className="navbar-item">
-                        <Link to="/login">Login</Link>
-                      </div>
-                      <div className="navbar-item">
-                        <Link to="/signup">Signup</Link>
-                      </div>
-                    </div>
-                  }
-
-                  {isLoggedIn &&
-                    <div className="navbar-item">
-                      <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
-                    </div>
-                  } */}
-
                   {isLoggedIn ? (
                     <div className="navbar-item">
                       <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>

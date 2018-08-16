@@ -68,7 +68,6 @@ export const walkerAcceptsReq = (acceptedRequest, history) => {
   return async(dispatch) => {
     try {
       dispatch({type: ACCEPT_REQUEST_PENDING})
-      // let user_id =
 
       let response = await fetch(`${BASE_URL}/requests/${acceptedRequest.id}`, {
         method: "PUT",

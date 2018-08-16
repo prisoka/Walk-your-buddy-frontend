@@ -5,10 +5,6 @@ import { walkerAcceptsReq } from '../redux/actions/requestsActions';
 const dateFormat = require('dateformat');
 
 class DogCard extends Component {
-  state = {
-    accepted: false
-  }
-
   acceptRequest = (e) => {
     e.preventDefault()
     const {
@@ -34,11 +30,10 @@ class DogCard extends Component {
   }
 
   render() {
-    const { accepted } = this.state
     const { id, dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip, walker_id, handleAcceptance } = this.props.request
     const formattedDate = dateFormat(request_date, "mm-dd-yyyy");
+    const accepted = walker_id !== null
 
-    // if the walker_id exists, and if it matches the token id, conditional render!!!
     return (
       <div className="column is-one-quarter">
         <div className="card">
@@ -76,6 +71,8 @@ class DogCard extends Component {
               <p className="subtitle is-6">{address_one + ", " + address_two + ", " + zip}</p>
             </div>
 
+            {/* if the walker_id exists, and if it matches the token id, conditional render!!! */}
+
             { accepted ? (
               <p className="has-text-success">Request Accepted!</p>
               ) : (
@@ -103,7 +100,6 @@ class DogCard extends Component {
               </div>
               )
             }
-
           </div>
         </div>
       </div>
