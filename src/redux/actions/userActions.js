@@ -45,17 +45,27 @@ export const userSignup = (newUser, history) => {
         body: JSON.stringify(newUser)
       })
       let userObject = await response.json()
-      dispatch({
-        type: USER_SIGNUP_SUCCESS,
-        payload: userObject
+      // .then(userObject => {
+      //   if (!userObject.ok){
+      //     throw new Error('request failed')
+      //   }
+      //   return userObject
+      // })
+      .then(() => {
+        Swal({
+          title: "User created",
+          text: "Welcome to WYB!",
+          type: "success",
+          confirmButtonText: "ok"
+        })
+        .then(() => {
+          dispatch({
+            type: USER_SIGNUP_SUCCESS,
+            payload: userObject
+          })
+        history.push('/login')
+        });
       })
-      Swal({
-        title: "User created",
-        text: "Welcome to WYB!",
-        type: "success",
-        confirmButtonText: "ok"
-      })
-      history.push('/login')
     } catch(err) {
       dispatch({
         type: USER_SIGNUP_FAILED,

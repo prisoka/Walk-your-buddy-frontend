@@ -70,9 +70,9 @@ class NavBar extends Component {
             </div>
           </div>
         </nav>
-        <section class="hero is-white">
-          <div class="hero-body">
-            <div class="container">
+        <section className="hero is-white">
+          <div className="hero-body">
+            <div className="container">
             </div>
           </div>
         </section>
