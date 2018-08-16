@@ -6,8 +6,7 @@ import { bindActionCreators } from 'redux'
 
 class NavBar extends Component {
   state = {
-    navBarExpanded: false,
-    isLoggedIn: false
+    navBarExpanded: false
   }
 
   toggleNav = () => {
@@ -17,24 +16,9 @@ class NavBar extends Component {
     })
   }
 
-  // handleLogin() {
-  //   const { isLoggedIn } = this.state
-  //   this.setState({
-  //     isLoggedIn: !isLoggedIn
-  //   })
-  // }
-  //
-  // handleLogout() {
-  //   const { isLoggedIn } = this.state
-  //   this.setState({
-  //     isLoggedIn: isLoggedIn
-  //   })
-  // }
-
-
   render() {
-    const { navBarExpanded, isLoggedIn } = this.state
-    const { userLogout, history } = this.props
+    const { navBarExpanded } = this.state
+    const { userLogout, history, isLoggedIn } = this.props
 
     return (
       <section className="is-primary is-medium is-bold">
@@ -67,7 +51,7 @@ class NavBar extends Component {
                     <Link to="/">Home</Link>
                   </div>
 
-                  {!isLoggedIn &&
+                  {/* {!isLoggedIn &&
                     <div className="navbar-end">
                       <div className="navbar-item">
                         <Link to="/login">Login</Link>
@@ -78,13 +62,13 @@ class NavBar extends Component {
                     </div>
                   }
 
-                  {!isLoggedIn &&
+                  {isLoggedIn &&
                     <div className="navbar-item">
                       <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
                     </div>
-                  }
+                  } */}
 
-                  {/* {isLoggedIn ? (
+                  {isLoggedIn ? (
                     <div className="navbar-item">
                       <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
                     </div>
@@ -97,8 +81,7 @@ class NavBar extends Component {
                         <Link to="/signup">Signup</Link>
                       </div>
                     </div>
-                  )} */}
-
+                  )}
                 </div>
               </div>
             </div>
@@ -108,8 +91,14 @@ class NavBar extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: Object.keys(state.user).length !== 0
+  }
+}
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   userLogout
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(NavBar)
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)

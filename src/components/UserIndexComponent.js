@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchUser } from '../redux/actions/userActions'
+import GoogleApi from './GoogleApiComponent'
 
 class UserIndex extends Component {
   render() {
@@ -17,11 +18,12 @@ class UserIndex extends Component {
               </h1>
               <br/>
               <p className="has-text-centered">
-                <Link to="/add_dog" className="button is-warning is-inverted is-rounded is-focused is-medium">Add Your Dog</Link>
+                <Link to="/add_dog" className="button is-warning is-inverted is-rounded is-focused is-medium">Add Your Dog</Link> &nbsp;
               </p>
             </div>
           </div>
         </section>
+
         <section>
           <div className="hero-body">
             <div className="container has-text-centered">
@@ -33,18 +35,10 @@ class UserIndex extends Component {
                   <p className="has-text-centered">
                     <Link to="/request" className="button is-warning is-medium">Book A Walk</Link> &nbsp;
                   </p>
-                  <br/>
-                  <p className="has-text-centered">
-                    <Link to="/" className="button is-warning is-medium">Upcoming Walks</Link>
-                  </p>
-                  <br/>
-                  <p className="has-text-centered">
-                    <Link to="/" className="button is-warning is-medium">Past Walks</Link>
-                  </p>
                 </div>
                 <div className="column is-5">
                   <figure className="image is-4by3">
-                    <img src="https://picsum.photos/800/600/?random" alt="Description" />
+                    <div><GoogleApi/></div>
                   </figure>
                 </div>
               </div>

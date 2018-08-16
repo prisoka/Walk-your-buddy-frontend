@@ -5,18 +5,12 @@ export class MapContainer extends Component {
   render() {
     return (
       <Map google={this.props.google} zoom={14}>
-
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
-
-        <InfoWindow onClose={this.onInfoWindowClose}>
-            {/* <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div> */}
-        </InfoWindow>
+        <Marker onClick={this.onMarkerClick} name={'Current location'} />
       </Map>
-    );
+    )
   }
 }
 
-export default GoogleApiWrapper({ apiKey:'AIzaSyAbEYfATqOhHCPs-5ZgICJf1Ek_8OIp9dk' })(MapContainer)
+export default (GoogleApiWrapper({
+  apiKey:('AIzaSyAbEYfATqOhHCPs-5ZgICJf1Ek_8OIp9dk')
+})(MapContainer))

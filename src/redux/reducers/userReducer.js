@@ -36,7 +36,7 @@ export default (state = initialState, { type, payload }) => {
     case USER_LOGOUT_PENDING:
       return {...state}
     case USER_LOGOUT_SUCCESS:
-      return {...state}
+      return {}
     case USER_LOGOUT_FAILED:
       return {payload}
     default:
