@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <section className="hero is-primary is-medium is-bold">
-        <div className="hero-body has-bg-img">
+        <div className="hero-body">
           <div className="container has-text-centered">
             <h1 className="title">
               <b>Welcome to WYB</b>
@@ -20,7 +20,6 @@ class Header extends Component {
             </h2>
           </div>
         </div>
-
       </section>
     );
   }
