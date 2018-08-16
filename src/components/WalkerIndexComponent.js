@@ -24,9 +24,6 @@ class WalkerIndex extends Component {
               <h2 className="subtitle">
                 Here are the dogs requests in your area:
               </h2>
-              {/* <h2>
-                <Link to="/" className="button is-link is-inverted is-rounded is-focused">My Bookings</Link>
-              </h2> */}
             </div>
           </div>
         </section>

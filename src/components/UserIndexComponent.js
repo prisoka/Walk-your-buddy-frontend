@@ -29,9 +29,7 @@ class UserIndex extends Component {
             <div className="container has-text-centered">
               <div className="columns is-centered">
                 <div className="column is-half">
-                  <h4 className="subtitle is-4">
-                    Available walkers near you:
-                  </h4>
+                  <br/><br/><br/>
                   <p className="has-text-centered">
                     <Link to="/request" className="button is-warning is-medium"><b>Book A Walk</b></Link> &nbsp;
                   </p>
@@ -45,6 +43,9 @@ class UserIndex extends Component {
                   </p>
                 </div>
                 <div className="column is-half">
+                  <h2 className="subtitle">
+                    Available walkers near you:
+                  </h2>
                   <figure className="image is-4by3">
                     {/* <GoogleApi/> */}
                     <img src="SF_CA.png" alt="San_Francisco" />
