@@ -78,6 +78,7 @@ export const userLogin = ({email, password}, history) => {
       })
       let userObject = await response.json()
       localStorage.setItem('userObjectFirstName', userObject.first_name)
+      localStorage.setItem('userObjectId', userObject.user_id)
       if(userObject.user_type === 'walker'){
         history.push('/walker_index')
       } else {
