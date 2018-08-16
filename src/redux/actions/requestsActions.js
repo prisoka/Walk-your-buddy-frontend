@@ -11,6 +11,10 @@ export const ACCEPT_REQUEST_PENDING = 'ACCEPT_REQUEST_PENDING'
 export const ACCEPT_REQUEST_SUCCESS = 'ACCEPT_REQUEST_SUCCESS'
 export const ACCEPT_REQUEST_FAILED = 'ACCEPT_REQUEST_FAILED'
 
+export const DECLINE_REQUEST_PENDING = 'DECLINE_REQUEST_PENDING'
+export const DECLINE_REQUEST_SUCCESS = 'DECLINE_REQUEST_SUCCESS'
+export const DECLINE_REQUEST_FAILED = 'DECLINE_REQUEST_FAILED'
+
 const BASE_URL = 'http://localhost:3000/api'
 
 export const fetchRequests = () => {
@@ -76,7 +80,6 @@ export const walkerAcceptsReq = (acceptedRequest, history) => {
   return async(dispatch) => {
     try {
       dispatch({type: ACCEPT_REQUEST_PENDING})
-
       let response = await fetch(`${BASE_URL}/requests/${acceptedRequest.id}`, {
         method: "PUT",
         headers: {
@@ -101,6 +104,40 @@ export const walkerAcceptsReq = (acceptedRequest, history) => {
     } catch(err) {
       dispatch({
         type: ACCEPT_REQUEST_FAILED,
+        payload: err
+      })
+    }
+  }
+}
+
+export const walkerDeclinesReq = (declinedRequest, history) => {
+  return async(dispatch) => {
+    try {
+      dispatch({type: DECLINE_REQUEST_PENDING})
+      let response = await fetch(`${BASE_URL}/requests/${declinedRequest.id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+        },
+        credentials: 'include',
+        body: JSON.stringify(declinedRequest)
+      })
+      .then ((response) => {
+        if (response.status < 300) {
+          return response;
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+      let responseObject = await response.json()
+      dispatch({
+        type: DECLINE_REQUEST_SUCCESS,
+        payload: responseObject
+      })
+    } catch(err) {
+      dispatch({
+        type: DECLINE_REQUEST_FAILED,
         payload: err
       })
     }

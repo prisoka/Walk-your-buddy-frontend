@@ -17,7 +17,7 @@ class UserIndex extends Component {
               </h1>
               <br/>
               <p className="has-text-centered">
-                <Link to="/add_dog" className="button is-warning is-inverted is-rounded is-focused is-medium">Add Your Dog</Link> &nbsp;
+                <Link to="/add_dog" className="button is-warning is-inverted is-rounded is-medium">Add Your Dog</Link> &nbsp;
               </p>
             </div>
           </div>
@@ -30,7 +30,7 @@ class UserIndex extends Component {
                 <div className="column is-half">
                   <br/><br/><br/>
                   <p className="has-text-centered">
-                    <Link to="/request" className="button is-warning is-medium"><b>Book A Walk</b></Link> &nbsp;
+                    <Link to="/request" className="button is-warning is-medium is-inverted"><b>Book A Walk</b></Link> &nbsp;
                   </p>
                   <br/>
                   <p className="has-text-centered">

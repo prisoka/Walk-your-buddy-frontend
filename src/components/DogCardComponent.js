@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { walkerAcceptsReq } from '../redux/actions/requestsActions';
+import { walkerDeclinesReq } from '../redux/actions/requestsActions';
 const dateFormat = require('dateformat');
 
 class DogCard extends Component {
@@ -27,6 +28,31 @@ class DogCard extends Component {
       walker_id: walker_id,
     }
     walkerAcceptsReq(acceptedRequest, history)
+  }
+
+  declineRequest = (e) => {
+    e.preventDefault()
+    const {
+      id,
+      user_id,
+      dog_id,
+      request_date,
+      request_time,
+      walker_id
+    } = this.props.request
+
+    const { walkerDeclinesReq, history } = this.props
+
+    let declinedRequest = {
+      id: id,
+      user_id: user_id,
+      dog_id: dog_id,
+      request_date: request_date,
+      request_time: request_time,
+      walker_id: walker_id,
+    }
+
+    walkerDeclinesReq(declinedRequest, history)
   }
 
   render() {
@@ -78,7 +104,7 @@ class DogCard extends Component {
                 <p className="control">
                   <a
                     className="button is-success is-outlined is-centered"
-                    type='submit'
+                    type="submit"
                     onClick={(e) => this.acceptRequest(e)}
                     >
                     <span className="icon is-small">
@@ -88,7 +114,11 @@ class DogCard extends Component {
                   </a>
                 </p>
                 <p className="control">
-                  <a className="button is-danger is-outlined is-centered">
+                  <a
+                    className="button is-danger is-outlined is-centered"
+                    type="submit"
+                    onClick={(e) => this.declineRequest(e)}
+                  >
                     <span>Decline</span>
                     <span className="icon is-small">
                       <i className="fas fa-times"></i>
@@ -107,6 +137,7 @@ class DogCard extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   walkerAcceptsReq,
+  walkerDeclinesReq
 }, dispatch)
 
 export default connect(null, mapDispatchToProps)(DogCard)
