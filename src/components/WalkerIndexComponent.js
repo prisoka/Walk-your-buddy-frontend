@@ -20,6 +20,7 @@ class WalkerIndex extends Component {
               <h1 className="title">
                 Welcome back, {localStorage.getItem('userObjectFirstName')}!
               </h1>
+              <br/>
               <h2 className="subtitle">
                 Here are the dogs requests in your area:
               </h2>

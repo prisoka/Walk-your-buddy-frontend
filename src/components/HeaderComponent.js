@@ -8,10 +8,11 @@ class Header extends Component {
         <div className="hero-body has-bg-img">
           <div className="container has-text-centered">
             <h1 className="title">
-              Welcome to WYB
+              <b>Welcome to WYB</b>
             </h1>
+            <br/>
             <h2 className="subtitle">
-              <b>Walk Your Buddy</b> is a community that connects people who loves dogs.<br/> If you can't walk your buddy, no problem, just ask a WYB family member to help you out!
+              <b>Walk Your Buddy</b> is a community that connects people who love dogs.<br/> If you can't walk your buddy, no problem, just ask a WYB family member to help you out!
             </h2>
             <h2>
               <Link to="/login" className="button is-primary is-inverted is-rounded is-focused is-medium">Book A Walk</Link> &nbsp;

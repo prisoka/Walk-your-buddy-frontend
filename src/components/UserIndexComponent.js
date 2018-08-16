@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchUser } from '../redux/actions/userActions'
-import GoogleApi from './GoogleApiComponent'
+// import GoogleApi from './GoogleApiComponent'
 
 class UserIndex extends Component {
   render() {
@@ -28,17 +28,26 @@ class UserIndex extends Component {
           <div className="hero-body">
             <div className="container has-text-centered">
               <div className="columns is-centered">
-                <div className="column is-6 is-offset-1">
-                  <h2 className="subtitle is-4">
+                <div className="column is-half">
+                  <h4 className="subtitle is-4">
                     Available walkers near you:
-                  </h2>
+                  </h4>
                   <p className="has-text-centered">
-                    <Link to="/request" className="button is-warning is-medium">Book A Walk</Link> &nbsp;
+                    <Link to="/request" className="button is-warning is-medium"><b>Book A Walk</b></Link> &nbsp;
+                  </p>
+                  <br/>
+                  <p className="has-text-centered">
+                    <Link to="/request" className="button is-warning is-medium">Upcoming Walks</Link> &nbsp;
+                  </p>
+                  <br/>
+                  <p className="has-text-centered">
+                    <Link to="/request" className="button is-warning is-medium">Past Walks</Link> &nbsp;
                   </p>
                 </div>
-                <div className="column is-5">
+                <div className="column is-half">
                   <figure className="image is-4by3">
-                    <div><GoogleApi/></div>
+                    {/* <GoogleApi/> */}
+                    <img src="SF_CA.png" alt="San_Francisco" />
                   </figure>
                 </div>
               </div>
