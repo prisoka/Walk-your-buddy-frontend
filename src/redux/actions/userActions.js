@@ -1,3 +1,6 @@
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
 export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
 
@@ -42,16 +45,33 @@ export const userSignup = (newUser, history) => {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newUser)
       })
+      .then(response => {
+        if (!response.ok){
+          throw new Error('request failed')
+        }
+        return response.json()
+      })
       let userObject = await response.json()
       dispatch({
         type: USER_SIGNUP_SUCCESS,
         payload: userObject
+      })
+      Swal({
+        title: "User created",
+        text: "Welcome to WYB!",
+        type: "success",
+        confirmButtonText: "ok"
       })
       history.push('/login')
     } catch(err) {
       dispatch({
         type: USER_SIGNUP_FAILED,
         payload: err
+      })
+      Swal({
+        title: "This email already exists",
+        type: 'warning',
+        confirmButtonText: "ok"
       })
     }
   }
@@ -92,6 +112,11 @@ export const userLogin = ({email, password}, history) => {
       dispatch({
         type: USER_LOGIN_FAILED,
         payload: err
+      })
+      Swal({
+        title: "Incorrect Email or Password",
+        type: "warning",
+        confirmButtonText: "ok"
       })
     }
   }

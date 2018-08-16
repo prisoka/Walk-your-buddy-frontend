@@ -30,7 +30,7 @@ class NavBar extends Component {
             <div className="container">
               <div className="navbar-brand">
                 <figure>
-                  <img src="paws.png" />
+                  <img src="paws.png" alt="paws"/>
                 </figure>
                 <div
                   className="navbar-burger burger"

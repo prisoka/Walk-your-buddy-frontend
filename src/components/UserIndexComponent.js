@@ -7,7 +7,6 @@ import { fetchUser } from '../redux/actions/userActions'
 
 class UserIndex extends Component {
   render() {
-    const { user } = this.props
     return (
       <div>
         <section className="hero is-warning is-medium is-bold">
@@ -70,4 +69,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchUser
 }, dispatch)
 
-export default connect(mapStateToProps, null)(UserIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(UserIndex)
