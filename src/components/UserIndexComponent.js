@@ -13,7 +13,7 @@ class UserIndex extends Component {
           <div className="hero-body has-bg-img">
             <div className="container has-text-centered">
               <h1 className="title">
-                Welcome back, {localStorage.getItem('userObjectFirstName')}!
+                Welcome, {localStorage.getItem('userObjectFirstName')}!
               </h1>
               <br/>
               <p className="has-text-centered">

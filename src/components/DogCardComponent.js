@@ -30,7 +30,7 @@ class DogCard extends Component {
   }
 
   render() {
-    const { id, dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip, walker_id, handleAcceptance } = this.props.request
+    const { dog_name, dog_photo_url, first_name, request_date, request_time, address_one, address_two, zip, walker_id } = this.props.request
     const formattedDate = dateFormat(request_date, "mm-dd-yyyy");
     const accepted = walker_id === parseInt(localStorage.getItem('userObjectId'))
 

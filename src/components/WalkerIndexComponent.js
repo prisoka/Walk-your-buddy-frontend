@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import DogCard from './DogCardComponent'
@@ -11,14 +10,14 @@ class WalkerIndex extends Component {
     fetchRequests()
   }
   render() {
-    const { user, requests } = this.props
+    const { requests } = this.props
     return (
       <div>
         <section className="hero is-link is-medium is-bold">
           <div className="hero-body has-bg-img">
             <div className="container has-text-centered">
               <h1 className="title">
-                Welcome back, {localStorage.getItem('userObjectFirstName')}!
+                Hi, {localStorage.getItem('userObjectFirstName')}!
               </h1>
               <br/>
               <h2 className="subtitle">

@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
 export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
@@ -49,7 +48,6 @@ export const userSignup = (newUser, history) => {
         if (!response.ok){
           throw new Error('request failed')
         }
-        return response.json()
       })
       let userObject = await response.json()
       dispatch({

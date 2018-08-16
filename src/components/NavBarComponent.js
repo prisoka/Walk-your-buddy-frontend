@@ -21,57 +21,62 @@ class NavBar extends Component {
     const { userLogout, history, isLoggedIn } = this.props
 
     return (
-      <section className="is-medium is-bold">
-          <nav
-            className="navbar is-transparent is-fixed-top"
-            role="navigation"
-            aria-label="main navigation"
-          >
-            <div className="container">
-              <div className="navbar-brand">
-                <figure>
-                  <img src="paws.png" alt="paws"/>
-                </figure>
-                <div
-                  className="navbar-burger burger"
-                  data-target="menu_options"
-                  aria-label="menu"
-                  aria-expanded="false"
-                  onClick={this.toggleNav}
-                >
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                </div>
-              </div>
-
+      <div>
+        <nav
+          className="navbar is-transparent is-fixed-top"
+          aria-label="main navigation"
+        >
+          <div className="container">
+            <div className="navbar-brand">
+              <figure>
+                <img src="paws.png" alt="paws"/>
+              </figure>
               <div
-                id="navbarMenu"
-                className={ navBarExpanded ? "navbar-menu is-active" : "navbar-menu" }
+                className="navbar-burger burger"
+                data-target="menu_options"
+                aria-label="menu"
+                aria-expanded="false"
+                onClick={this.toggleNav}
               >
-                <div className="navbar-end">
-                  <div className="navbar-item">
-                    <Link to="/">Home</Link>
-                  </div>
-                  {isLoggedIn ? (
-                    <div className="navbar-item">
-                      <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
-                    </div>
-                  ) : (
-                    <div className="navbar-end">
-                      <div className="navbar-item">
-                        <Link to="/login">Login</Link>
-                      </div>
-                      <div className="navbar-item">
-                        <Link to="/signup">Signup</Link>
-                      </div>
-                    </div>
-                  )}
-                </div>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
               </div>
             </div>
-          </nav>
-      </section>
+
+            <div
+              id="navbarMenu"
+              className={ navBarExpanded ? "navbar-menu is-active" : "navbar-menu" }
+            >
+              <div className="navbar-end">
+                <div className="navbar-item">
+                  <Link to="/">Home</Link>
+                </div>
+                {isLoggedIn ? (
+                  <div className="navbar-item">
+                    <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
+                  </div>
+                ) : (
+                  <div className="navbar-end">
+                    <div className="navbar-item">
+                      <Link to="/login">Login</Link>
+                    </div>
+                    <div className="navbar-item">
+                      <Link to="/signup">Signup</Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </nav>
+        <section class="hero is-white">
+          <div class="hero-body">
+            <div class="container">
+            </div>
+          </div>
+        </section>
+      </div>
     );
   }
 }
