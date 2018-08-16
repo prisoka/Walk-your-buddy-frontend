@@ -44,11 +44,6 @@ export const userSignup = (newUser, history) => {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newUser)
       })
-      .then(response => {
-        if (!response.ok){
-          throw new Error('request failed')
-        }
-      })
       let userObject = await response.json()
       dispatch({
         type: USER_SIGNUP_SUCCESS,
@@ -66,11 +61,11 @@ export const userSignup = (newUser, history) => {
         type: USER_SIGNUP_FAILED,
         payload: err
       })
-      Swal({
-        title: "This email already exists",
-        type: 'warning',
-        confirmButtonText: "ok"
-      })
+      // Swal({
+      //   title: "This email already exists",
+      //   type: 'warning',
+      //   confirmButtonText: "ok"
+      // })
     }
   }
 };

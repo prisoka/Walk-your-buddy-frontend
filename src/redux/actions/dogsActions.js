@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 export const FETCH_DOGS_SUCCESS = 'FETCH_DOGS_SUCCESS'
 export const FETCH_DOGS_FAILED = 'FETCH_DOGS_FAILED'
 
@@ -62,6 +64,11 @@ export const addDog = (newDog, history) => {
       dispatch({
         type: ADD_DOG_SUCCESS,
         payload: dogObject
+      })
+      Swal({
+        title: "Dog Added",
+        type: "success",
+        confirmButtonText: "ok"
       })
       history.push('/user_index')
     } catch(err) {

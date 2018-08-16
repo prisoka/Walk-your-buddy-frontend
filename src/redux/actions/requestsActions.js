@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 export const FETCH_REQUESTS_SUCCESS = 'FETCH_REQUESTS_SUCCESS'
 export const FETCH_REQUESTS_FAILED = 'FETCH_REQUESTS_FAILED'
 
@@ -55,6 +57,12 @@ export const requestWalk = (newRequest, history) => {
         payload: responseObject
       })
       history.push('/user_index')
+      Swal({
+        title: "Walk Requested!",
+        text: "Now, just wait for confirmation from the closest walker available...",
+        type: "success",
+        confirmButtonText: "ok"
+      })
     } catch(err) {
       dispatch({
         type: REQUEST_FAILED,
