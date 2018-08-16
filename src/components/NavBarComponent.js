@@ -21,7 +21,7 @@ class NavBar extends Component {
     const { userLogout, history, isLoggedIn } = this.props
 
     return (
-      <section className="is-primary is-medium is-bold">
+      <section className="is-medium is-bold">
           <nav
             className="navbar is-transparent is-fixed-top"
             role="navigation"
@@ -29,6 +29,9 @@ class NavBar extends Component {
           >
             <div className="container">
               <div className="navbar-brand">
+                <figure>
+                  <img src="paws.png" />
+                </figure>
                 <div
                   className="navbar-burger burger"
                   data-target="menu_options"
