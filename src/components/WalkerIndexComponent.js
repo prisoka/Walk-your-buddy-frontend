@@ -18,14 +18,14 @@ class WalkerIndex extends Component {
           <div className="hero-body has-bg-img">
             <div className="container has-text-centered">
               <h1 className="title">
-                Hi, {localStorage.getItem('userObjectFirstName')}!
+                Welcome back, {localStorage.getItem('userObjectFirstName')}!
               </h1>
               <h2 className="subtitle">
-                HERE ARE THE DOGS REQUESTS:
+                Here are the dogs requests in your area:
               </h2>
-              <h2>
+              {/* <h2>
                 <Link to="/" className="button is-link is-inverted is-rounded is-focused">My Bookings</Link>
-              </h2>
+              </h2> */}
             </div>
           </div>
         </section>

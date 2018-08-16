@@ -9,17 +9,19 @@ class Footer extends Component {
             <div className="column is-one-quarter">
               <h2><strong>About us</strong></h2>
               <ul>
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li><a href="#">Vestibulum errato isse</a></li>
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                <li><a href="#">WYB history</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Contact us</a></li>
               </ul>
             </div>
 
             <div className="column is-one-quarter">
-              <h2><strong>Help</strong></h2>
+              <h2><strong>Locations</strong></h2>
               <ul>
-                <li><a href="#">Labore et dolore magna aliqua</a></li>
-                <li><a href="#">Kanban airis sum eschelor</a></li>
+                <li><a href="#">San Francisco, CA</a></li>
+                <li><a href="#">Sydney, NSW</a></li>
+                <li><a href="#">Sao Paulo, SP</a></li>
               </ul>
             </div>
           </div>
