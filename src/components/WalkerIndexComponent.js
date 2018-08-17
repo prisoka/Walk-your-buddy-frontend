@@ -10,7 +10,8 @@ class WalkerIndex extends Component {
     fetchRequests()
   }
   render() {
-    const { requests } = this.props
+    const { requests, user_id } = this.props
+
     return (
       <div>
         <section className="hero is-link is-medium is-bold">
@@ -28,13 +29,28 @@ class WalkerIndex extends Component {
         </section>
         <section>
           <div id="eventContainer" className="columns is-left is-multiline" style={{padding: "2rem"}}>
-            {requests.map((request) => (
-              <DogCard
-                key={request.id}
-                request={request}
-                {...this.props} // passing the props to inject history to child/children
-              />
-            ))}
+            {
+              requests.map((request) => (
+                  <DogCard
+                    key={request.id}
+                    request={request}
+                    {...this.props} // passing the props to inject history to child/children
+                  />
+              ))
+            }
+
+            
+            {/* another solution w/o AUTH on the backend */}
+            {/* {
+              requests.map((request) => (
+                request.walker_id === null || request.walker_id === parseInt(localStorage.getItem('userObjectId')) &&
+                  <DogCard
+                    key={request.id}
+                    request={request}
+                    {...this.props} // passing the props to inject history to child/children
+                  />
+              ))
+            } */}
           </div>
         </section>
       </div>

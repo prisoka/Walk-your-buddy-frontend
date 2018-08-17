@@ -20,7 +20,14 @@ const BASE_URL = 'http://localhost:3000/api'
 export const fetchRequests = () => {
   return async dispatch => {
     try {
-      let response = await fetch(`${BASE_URL}/requests`)
+      let response = await fetch(`${BASE_URL}/requests`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+        },
+        credentials: 'include',
+      })
       let requests = await response.json()
       dispatch({
         type: FETCH_REQUESTS_SUCCESS,
