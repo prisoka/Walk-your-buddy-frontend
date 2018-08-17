@@ -133,7 +133,9 @@ export const walkerDeclinesReq = (declinedRequest, history) => {
       let responseObject = await response.json()
       dispatch({
         type: DECLINE_REQUEST_SUCCESS,
-        payload: responseObject
+        payload: {
+          requestId: declinedRequest.id
+        }
       })
     } catch(err) {
       dispatch({

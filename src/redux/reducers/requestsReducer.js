@@ -43,7 +43,10 @@ export default (state = initialState, { type, payload }) => {
     case DECLINE_REQUEST_PENDING:
       return [...state]
     case DECLINE_REQUEST_SUCCESS:
-      return [...state]
+      const stateAfterDecline = state.filter((request) => {
+        return request.id !== payload.requestId
+      })
+      return stateAfterDecline
     case DECLINE_REQUEST_FAILED:
       return [payload]
     default:

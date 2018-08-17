@@ -39,43 +39,43 @@ export const userSignup = (newUser, history) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_SIGNUP_PENDING})
+
       let response = await fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newUser)
       })
-      let userObject = await response.json()
-      // .then(userObject => {
-      //   if (!userObject.ok){
-      //     throw new Error('request failed')
-      //   }
-      //   return userObject
-      // })
-      .then(() => {
-        Swal({
-          title: "User created",
-          text: "Welcome to WYB!",
-          type: "success",
-          confirmButtonText: "ok"
-        })
-        .then(() => {
-          dispatch({
-            type: USER_SIGNUP_SUCCESS,
-            payload: userObject
-          })
-        history.push('/login')
-        });
+      .then(userObject => {
+        if (!userObject.ok){
+          throw new Error('request failed')
+        }
+        return userObject
       })
+
+      let userObject = await response.json()
+      Swal({
+        title: "User created",
+        text: "Welcome to WYB!",
+        type: "success",
+        confirmButtonText: "ok"
+      })
+      .then(() => {
+        dispatch({
+          type: USER_SIGNUP_SUCCESS,
+          payload: userObject
+        })
+        history.push('/login')
+      });
     } catch(err) {
+      Swal({
+        title: "This email already exists",
+        type: 'warning',
+        confirmButtonText: "ok"
+      })
       dispatch({
         type: USER_SIGNUP_FAILED,
         payload: err
       })
-      // Swal({
-      //   title: "This email already exists",
-      //   type: 'warning',
-      //   confirmButtonText: "ok"
-      // })
     }
   }
 };
@@ -112,14 +112,14 @@ export const userLogin = ({email, password}, history) => {
         payload: userObject
       })
     } catch(err) {
-      dispatch({
-        type: USER_LOGIN_FAILED,
-        payload: err
-      })
       Swal({
         title: "Incorrect Email or Password",
         type: "warning",
         confirmButtonText: "ok"
+      })
+      dispatch({
+        type: USER_LOGIN_FAILED,
+        payload: err
       })
     }
   }

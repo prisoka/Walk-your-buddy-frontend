@@ -26,13 +26,13 @@ export default (state = initialState, { type, payload }) => {
     case USER_SIGNUP_SUCCESS:
       return {...payload}
     case USER_SIGNUP_FAILED:
-      return {payload}
+      return {...state}
     case USER_LOGIN_PENDING:
       return {...state}
     case USER_LOGIN_SUCCESS:
       return {...payload}
     case USER_LOGIN_FAILED:
-      return {payload}
+      return {...state}
     case USER_LOGOUT_PENDING:
       return {...state}
     case USER_LOGOUT_SUCCESS:
