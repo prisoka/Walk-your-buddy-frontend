@@ -15,7 +15,8 @@ export const USER_LOGOUT_PENDING = 'USER_LOGOUT_PENDING'
 export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT_SUCCESS'
 export const USER_LOGOUT_FAILED = 'USER_LOGOUT_FAILED'
 
-const BASE_URL = 'http://localhost:3000/api'
+// const BASE_URL = 'http://localhost:3000/api'
+const BASE_URL = 'https://wyb-api.herokuapp.com/api'
 
 export const fetchUser = (id) => {
   return async dispatch => {
