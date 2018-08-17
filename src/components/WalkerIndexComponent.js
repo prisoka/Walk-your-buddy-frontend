@@ -39,7 +39,6 @@ class WalkerIndex extends Component {
               ))
             }
 
-            
             {/* another solution w/o AUTH on the backend */}
             {/* {
               requests.map((request) => (
