@@ -100,7 +100,7 @@ class DogCard extends Component {
             { accepted ? (
               <p className="has-text-success">Request Accepted!</p>
               ) : (
-              <div className="field is-grouped">
+              <div className="field">
                 <p className="control">
                   <a
                     className="button is-success is-outlined is-centered"
@@ -112,7 +112,7 @@ class DogCard extends Component {
                     </span>
                     <span>Accept</span>
                   </a>
-                </p>
+                </p><br/>
                 <p className="control">
                   <a
                     className="button is-danger is-outlined is-centered"
