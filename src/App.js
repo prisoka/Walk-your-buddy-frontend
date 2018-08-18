@@ -18,6 +18,10 @@ import Footer from './components/FooterComponent'
 
 class App extends Component {
   render() {
+    const url = process.env.REACT_APP_API_URL
+    console.log(process.env.REACT_APP_API_URL)
+    console.log('URL>>>', url)
+
     return (
       <div className="App">
         <Router>

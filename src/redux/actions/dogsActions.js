@@ -7,8 +7,7 @@ export const ADD_DOG_PENDING = 'ADD_DOG_PENDING'
 export const ADD_DOG_SUCCESS = 'ADD_DOG_SUCCESS'
 export const ADD_DOG_FAILED = 'ADD_DOG_FAILED'
 
-// const BASE_URL = 'http://localhost:3000/api'
-const BASE_URL = 'https://wyb-api.herokuapp.com/api'
+const BASE_URL = process.env.REACT_APP_API_URL
 
 export const fetchDogs = () => {
   return async dispatch => {

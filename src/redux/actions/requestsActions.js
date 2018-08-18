@@ -15,8 +15,7 @@ export const DECLINE_REQUEST_PENDING = 'DECLINE_REQUEST_PENDING'
 export const DECLINE_REQUEST_SUCCESS = 'DECLINE_REQUEST_SUCCESS'
 export const DECLINE_REQUEST_FAILED = 'DECLINE_REQUEST_FAILED'
 
-// const BASE_URL = 'http://localhost:3000/api'
-const BASE_URL = 'https://wyb-api.herokuapp.com/api'
+const BASE_URL = process.env.REACT_APP_API_URL
 
 export const fetchRequests = () => {
   return async dispatch => {
