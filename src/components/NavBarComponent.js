@@ -18,7 +18,7 @@ class NavBar extends Component {
 
   render() {
     const { navBarExpanded } = this.state
-    const { userLogout, history, isLoggedIn } = this.props
+    const { userLogout, history, isLoggedIn, isUser } = this.props
 
     return (
       <div>
@@ -49,9 +49,24 @@ class NavBar extends Component {
               className={ navBarExpanded ? "navbar-menu is-active" : "navbar-menu" }
             >
               <div className="navbar-end">
-                <div className="navbar-item">
-                  <Link to="/">Home</Link>
-                </div>
+                {
+                  isLoggedIn ? (
+                    isUser ? (
+                      <div className="navbar-item">
+                        <Link to="/user_index">Home</Link>
+                      </div>
+                    ) : (
+                      <div className="navbar-item">
+                        <Link to="/walker_index">Home</Link>
+                      </div>
+                    )
+                  ) : (
+                    <div className="navbar-item">
+                      <Link to="/">Home</Link>
+                    </div>
+                  )
+                }
+
                 {isLoggedIn ? (
                   <div className="navbar-item">
                     <Link to="/" onClick={(e) => {userLogout(history)}}>Logout</Link>
@@ -83,7 +98,8 @@ class NavBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isLoggedIn: Object.keys(state.user).length !== 0
+    isLoggedIn: Object.keys(state.user).length !== 0,
+    isUser: state.user.user_type ? state.user.user_type === 'user' : false
   }
 }
 
