@@ -90,6 +90,7 @@ export const userLogin = ({email, password}, history) => {
           'Content-Type':'application/json'
         },
         credentials: 'include',
+        cache: "no-store",
         body: JSON.stringify({email, password})
       })
       .then ((response) => {
