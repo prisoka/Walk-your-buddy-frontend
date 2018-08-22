@@ -12,7 +12,7 @@ WYB is your solution for when, whatever reason, you don't have time to walk your
 
 ## Technologies: 
 <b>Front-end: JavaScript, React, Redux, CSS Framework;</b><br>
-Back-end: JavaScript, Express, Node.js, Knex.js, PostgreSQL, Bcrypt, JWT;<br>
+<b>Back-end: JavaScript, Express, Node.js, Knex.js, PostgreSQL, Bcrypt, JWT;</b><br>
 Testing: Mocha, Chai;<br>
 Deployment: Heroku.<br>
 Project planning: [Trello](https://trello.com/b/LmybfhdO/walk-your-buddy)
