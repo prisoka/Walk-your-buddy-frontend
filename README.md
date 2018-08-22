@@ -1,9 +1,10 @@
 # Walk your Buddy! - WYB
 
 ## Deployed URL: 
+https://wyb.herokuapp.com/
 
 ## What are you looking at? 
-WYB is your solution for when, whatever reason, you don't have time to walk you dog!
+WYB is your solution for when, whatever reason, you don't have time to walk your dog!
 
 ## Installation
 1. yarn install
@@ -11,13 +12,21 @@ WYB is your solution for when, whatever reason, you don't have time to walk you 
 
 ## Technologies: 
 <b>Front-end: JavaScript, React, Redux, CSS Framework;</b><br>
-Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL, Bcrypt, JWT;<br>
+Back-end: JavaScript, Express, Node.js, Knex.js, PostgreSQL, Bcrypt, JWT;<br>
 Testing: Mocha, Chai;<br>
 Deployment: Heroku.<br>
 Project planning: [Trello](https://trello.com/b/LmybfhdO/walk-your-buddy)
 
 ## Developer:
 [prisoka](https://github.com/prisoka)
+
+## Main challenges and successes:
+React, Redux and Routing
+React Conditional Rendering
+Authentication
+Authorization
+Setup Environment Variables
+SQL join tables
 
 ## Technical requirements:
 
