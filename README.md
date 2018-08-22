@@ -21,11 +21,11 @@ Project planning: [Trello](https://trello.com/b/LmybfhdO/walk-your-buddy)
 [prisoka](https://github.com/prisoka)
 
 ## Main challenges and successes:
-React, Redux and Routing
-React Conditional Rendering
-Authentication
-Authorization
-Setup Environment Variables
+React, Redux and Routing <br>
+React Conditional Rendering <br>
+Authentication <br>
+Authorization <br>
+Setup Environment Variables <br>
 SQL join tables
 
 ## Technical requirements:
