@@ -16,7 +16,9 @@ export const fetchDogs = () => {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+          'Access-Control-Request-Headers': 'Authorization, Content-Type',
+          // headers need Authorization to fetch all dogs
+          'Authorization': 'Bearer: ' + window.localStorage.getItem('token')
         },
         credentials: 'include',
       })
@@ -48,7 +50,9 @@ export const addDog = (newDog, history) => {
       let response = await fetch(`${BASE_URL}/dogs`, {
         method: "POST",
         headers: {
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+          'Access-Control-Request-Headers': 'Authorization, Content-Type',
+          // Authorization to add a dog
+          'Authorization': 'Bearer: ' + window.localStorage.getItem('token')
         },
         credentials: 'include',
         body: formData

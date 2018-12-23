@@ -24,7 +24,9 @@ export const fetchRequests = () => {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+          'Access-Control-Request-Headers': 'Authorization, Content-Type',
+          // adding Authorization to fetch all requests
+          'Authorization': 'Bearer: ' + window.localStorage.getItem('token')
         },
         credentials: 'include',
       })
@@ -50,7 +52,9 @@ export const requestWalk = (newRequest, history) => {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+          'Access-Control-Request-Headers': 'Authorization, Content-Type',
+          // adding Authorization to create request
+          'Authorization': 'Bearer: ' + window.localStorage.getItem('token')
         },
         credentials: 'include',
         body: JSON.stringify(newRequest)
@@ -91,7 +95,9 @@ export const walkerAcceptsReq = (acceptedRequest, history) => {
         method: "PUT",
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+          'Access-Control-Request-Headers': 'Authorization, Content-Type',
+          // adding Authorization to update request
+          'Authorization': 'Bearer: ' + window.localStorage.getItem('token')
         },
         credentials: 'include',
         body: JSON.stringify(acceptedRequest)
@@ -125,7 +131,9 @@ export const walkerDeclinesReq = (declinedRequest, history) => {
         method: "DELETE",
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'Authorization, Content-Type'
+          'Access-Control-Request-Headers': 'Authorization, Content-Type',
+          // adding Authorization to update request
+          'Authorization': 'Bearer: ' + window.localStorage.getItem('token')
         },
         credentials: 'include',
         body: JSON.stringify(declinedRequest)
